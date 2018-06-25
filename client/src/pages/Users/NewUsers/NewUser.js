@@ -1,27 +1,82 @@
-import React from 'react';
+import React, {Component} from 'react';
+import API from '../../../utils/API'
+import { Input, FormBtn } from "../../../components/Form"
 
- const NewUser = props => (
-     <div className='form-container'>
+   
+
+ class NewUser extends Component{
+    state={
+        email:"",
+        password:"",
+        firstName:"",
+        lastName:"",
+        street:"",
+        apartment:"",
+        city:"",
+        state:"",
+        zip:"",
+        age:""
+    }
+
+    handleFormSubmit = (event)=>{
+        event.preventDefault();
+        console.log('Submit Clicked')
+        API.addUser({
+            email:this.state.email,
+            password: this.state.password,
+            firstName:this.state.firstName,
+            lastName:this.state.lastName,
+            age:this.state.age,
+            address:{
+                street:this.state.street,
+                apartment:this.state.apartment,
+                city:this.state.city,
+                state:this.state.state,
+                zip: this.state.zip,
+            }
+        });
+        console.log(this.state);
+    }
+
+    handleInputChange = (event) =>{
+        const {name, value} = event.target;
+        this.setState({
+            [name]:value
+        });
+        // console.log(this.state);
+    }
+
+    render(){
+        return(
+        <div className='form-container'>
         <form>
             <label>Email Address</label>
-            <input id='email' type='text' className='user-input'/>
+            <Input name='email' value={this.state.email} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>password</label>
-            <input id='password' type='text' className='user-input'/>
+            <Input name='password' value={this.state.password} onChange={this.handleInputChange} type='password' className='user-input'/>
             <label>First Name</label>
-            <input id='first-name' type='text' className='user-input'/>
+            <Input name='firstName' value={this.state.firstName} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Last Name</label>
-            <input id='last-name' type='password' className='user-input'/>
-            <label>Address</label>
-            <input id='address-street' type='text' className='user-input'/>
+            <Input name='lastName' value={this.state.lastName} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Age</label>
+            <Input name='age' value={this.state.age} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Street</label>
+            <Input name='street' value={this.state.street} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Apartment Number</label>
+            <Input name='apt' value={this.state.apartment} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>City</label>
-            <input id='address-city' type='text' className='user-input'/>
+            <Input name='city' value={this.state.city} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>State</label>
-            <input id='address-state' type='text' className='user-input'/>
+            <Input name='state' value={this.state.state} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Zip</label>
-            <input id='address-zip' type='text' className='user-input'/>
-            <button id='form-submit' className='form-btn'>Submit</button>
+            <Input name='zip' value={this.state.zip} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <FormBtn onClick={this.handleFormSubmit}>Submit</FormBtn>
         </form>
     </div>
- )
+        )
+    }
+   
+ }
+
 
 export default NewUser;

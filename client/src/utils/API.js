@@ -2,12 +2,16 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function() {
+  getUsers: function() {
     return axios.get("/api/users");
   },
   // Gets the book with the given id
-  getBook: function(id) {
+  getUser: function(id) {
     return axios.get("/api/users/" + id);
+  },
+  // Adds a user to the db
+  addUser: (userData) => {
+    return axios.post('/api/users',userData);
   }
   // Deletes the book with the given id
   // deleteBook: function(id) {
