@@ -35,7 +35,6 @@ import { Input, FormBtn } from "../../../components/Form"
                 zip: this.state.zip,
             }
         });
-        console.log(this.state);
     }
 
     handleInputChange = (event) =>{
@@ -63,7 +62,7 @@ import { Input, FormBtn } from "../../../components/Form"
             <label>Street</label>
             <Input name='street' value={this.state.street} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Apartment Number</label>
-            <Input name='apt' value={this.state.apartment} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <Input name='apartment' value={this.state.apartment} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>City</label>
             <Input name='city' value={this.state.city} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>State</label>
