@@ -1,16 +1,53 @@
 import React, {Component} from 'react';
 import "./BrowseSubscriptions.css";
+import API from "../../../utils/API";
+import { Link } from "react-router-dom";
+import BrowseCard from "../../../components/BrowseCard";
+//import subscriptions from "../../../puppies.json";
 
 class BrowseSubscriptions extends Component {
-    state ={
+    state = {
         
-    }
+        subscriptionName: [],
+        description: "",
+        category: "",
+      };
 
+     
+      
+componentDidMount() {
+     this.loadSubscriptions();
+}
+      
+    loadSubscriptions = () => {
+          API.getSubscriptions()
+            .then(res =>
+              
+                this.setState({ subscriptionName: res.data, description: "", category: "" })
+            )
+            
+            .catch(err => console.log(err));
+        };
+      
+    handleInputChange = event => {
+          const { name, value } = event.target;
+          this.setState({
+            [name]: value
+          });
+    };
 
 render(){
     return(
         <div>
         <h1>Browse Subscriptions</h1>
+        {this.state.subscriptionName.map(subscriptions => (
+          
+          <BrowseCard
+            key={subscriptions.category}
+            name={subscriptions.subscriptionName}
+            image={subscriptions.description}
+          />
+        ))}
         <div class="row">
   <div class="col-4">
     <div class="list-group" id="list-tab" role="tablist">
