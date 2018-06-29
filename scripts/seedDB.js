@@ -24,14 +24,14 @@ const subscriptionSeed = [
         {planName: "Standard", price: 10.99, frequency: "month", default: false},
         {planName: "Premium", price: 13.99, frequency: "month", default: false}
     ], 
-    date: new Date(Date.now()),
+   // date: new Date(Date.now()),
     active: true
   },
   {
     subscriptionName: "Le Tote",
     description: "Le Tote is a fashion subscription service that lets you rent clothing and accessories for a flat monthly membership fee. Just wear, return & repeat! For a monthly price, you can choose a “tote” of three clothing pieces and two accessories from the company’s inventory. You can try the items on, wear them to work or when you’re hanging out with friends, and once you’re done, just ship the stuff you don’t want back and purchase the pieces you do want. You get unlimited “totes” every month, so you don’t have to wait to try out more stuff. Shipping is free, and there's no commitment, so you can cancel at any time.",
     category: "Fashion",
-    iconURL:"",
+    iconURL:"https://www.itespresso.es/wp-content/uploads/2015/02/le_tote.png",
     url: "https://letote.com/",
     accountURL: "https://www.letote.com/profile",
     price: [
@@ -39,7 +39,7 @@ const subscriptionSeed = [
         {planName: "5 clothing items + 3 accessories", price: 79, frequency: "month", default: false},
         {planName: "4 clothing", price: 69, frequency: "month", default: false}
     ], 
-    date: new Date(Date.now()),
+  //  date: new Date(Date.now()),
     active: true
   }
 ];
