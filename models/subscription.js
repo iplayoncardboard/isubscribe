@@ -16,6 +16,7 @@ const User = mongoose.model("Subscription", subscriptionSchema);
 module.exports = User;
 
 //Array of Price Objects
+//default = value we want to show to customer first
 // [
 //     {planName: "Prime",
 //     price: 20.00,

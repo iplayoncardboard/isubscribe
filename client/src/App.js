@@ -5,6 +5,7 @@ import Users from "./pages/Users/Users";
 import NoMatch from "./pages/NoMatch";  
 import Nav from "./components/Nav";
 import NewUser from './pages/Users/NewUsers'
+import Login from './pages/LogIn'
 import NewSubscription from './pages/Subscriptions/NewSubscription'
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
       <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
