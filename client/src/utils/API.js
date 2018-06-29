@@ -12,6 +12,10 @@ export default {
   // Adds a user to the db
   addUser: (userData) => {
     return axios.post('/api/users',userData);
+  },
+  //Add a subscription to the database
+  addSubscription: (subscriptionData) => {
+    return axios.post('/api/subscriptions',subscriptionData);
   }
   // Deletes the book with the given id
   // deleteBook: function(id) {

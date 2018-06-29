@@ -3,3 +3,4 @@ module.exports = {
   Subscription: require('./subscription'),
   UserSubscription: require('./userSubscription')
 };
+

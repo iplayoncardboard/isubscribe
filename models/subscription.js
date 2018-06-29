@@ -7,7 +7,7 @@ const subscriptionSchema = new Schema({
     categories:{type:Array, required:false},
     iconURL: {type: String, required:true, trim:true},
     url: {type: String, required: true, tirm: true},
-    price: {type: Array, required: true},
+    price: {type: Array, required: false}, //will need to flip the required flag to true.
     date: {type: Date, default: Date.now },
     active:{type: Boolean, default: true}
 });
@@ -22,3 +22,4 @@ module.exports = User;
 //     frequency:"month",
 //     default: true}
 // ]
+
