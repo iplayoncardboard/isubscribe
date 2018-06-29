@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSubscriptionSchema = new Schema({
-    subscriptionName: {type: String, required: true, trim: true},
+    subscription: {type: Schema.Types.ObjectId},
     description: {type:String, required:true},
     categories:{type:Array, required:false},
     iconURL: {type: String, required:true, trim:true},
@@ -15,10 +15,4 @@ const User = mongoose.model("UserSubscription", userSubscriptionSchema);
 
 module.exports = User;
 
-//Array of Price Objects
-// [
-//     {planName: "Prime",
-//     price: 20.00,
-//     frequency:"month",
-//     default: true}
-// ]
+//Tie to subscription model and add some stuff like my price.
