@@ -9,7 +9,7 @@ import { stat } from 'fs';
     state={
     subscriptionName: '',
     description: '',
-    categories:['A','B','C'],
+    category:"",
     iconURL: '',
     url: '',
     price: [1,2,3],
@@ -22,7 +22,7 @@ import { stat } from 'fs';
         API.addSubscription({
             subscriptionName:this.state.subscriptionName,
             description: this.state.description,
-            categories:this.state.categories,
+            category:this.state.category,
             iconURL:this.state.iconURL,
             url:this.state.url,
             price:this.state.price
@@ -50,9 +50,15 @@ import { stat } from 'fs';
             <Input name='subscriptionName' value={this.state.subscriptionName} onChange={this.handleInputChange} type='text' className='sub-input'/>
             <label>Subscription Description</label>
             <TextArea name='description' value={this.state.description} onChange={this.handleInputChange} className='sub-input'/>
-            {/* {this.state.categories.map(category=>{
-                return <Input className='sub-checkbox' id={category._id} key={category._id} />
-            })} */}
+            <select name='category' onChange={this.handleInputChange}>
+                <option value="Video Streaming">Video Streaming </option>
+                <option value="Subscription Box">Subscription Box</option>
+                <option value="Music Streaming ">Music Streaming </option>
+                <option value="Food">Food</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Movie Ticket">Movie Ticket</option>
+                <option value="Pets">Pets</option>
+            </select>
             <label>Company URL</label>
             <Input name='url' value={this.state.url} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Icon URL</label>

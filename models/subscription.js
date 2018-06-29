@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const subscriptionSchema = new Schema({
     subscriptionName: {type: String, required: true, trim: true},
     description: {type:String, required:true},
-    categories:{type:Array, required:false},
+    category:{type:String, required:false},
     iconURL: {type: String, required:true, trim:true},
     url: {type: String, required: true, tirm: true},
     price: {type: Array, required: false}, //will need to flip the required flag to true.
