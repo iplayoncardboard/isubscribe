@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 // // This file empties the Subscription collection and inserts the Subscription below
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/isubscribe",
   {
-    useMongoClient: true
+   
   }
 );
 
@@ -45,9 +45,9 @@ const subscriptionSeed = [
 ];
 
 
-db.isubscribe
+db.Subscription
   .remove({})
-  .then(() => db.isubscribe.collection.insertMany(subscriptionSeed))
+  .then(() => db.Subscription.collection.insertMany(subscriptionSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
