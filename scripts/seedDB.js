@@ -85,8 +85,6 @@ const subscriptionSeed = [
         {planName: "4 clothing", price: 69, frequency: "month", default: false}
       ], 
     date: new Date(Date.now()),
-    ], 
-   date: new Date(Date.now()),
     active: true
   }
 ];
