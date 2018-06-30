@@ -42,6 +42,18 @@ import { stat } from 'fs';
         //Create component for category dropdown
     }
 
+    //To add a new price category make a component for price category that displays props.children
+    //Make a button with a funtion that triggers on click
+    //Make the function take the info from the form inputs and add it to the compnent. This should also update the state of this component's price property. 
+    // props to Pass
+    // {props.planName}
+    // {props.price}
+    // {props.frequency}
+    // {props.default}
+    // props.removeItem
+
+
+
     render(){
         return(
         <div className='form-container'>
