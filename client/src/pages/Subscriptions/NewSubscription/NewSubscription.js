@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import API from '../../utils/API'
-import { Input, FormBtn, TextArea } from "../../components/Form"
+import API from '../../../utils/API'
+import { Input, FormBtn, TextArea } from "../../../components/Form"
 import { stat } from 'fs';
 
    

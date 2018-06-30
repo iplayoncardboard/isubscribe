@@ -16,7 +16,14 @@ export default {
   //Add a subscription to the database
   addSubscription: (subscriptionData) => {
     return axios.post('/api/subscriptions',subscriptionData);
-  }
+  },
+  getSubscriptions: function() {
+    return axios.get("/api/subscriptions");
+  },
+  // Gets the book with the given id
+  getSubscription: function(id) {
+    return axios.get("/api/subscriptions/" + id);
+  },
   // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);

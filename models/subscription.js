@@ -11,9 +11,9 @@ const subscriptionSchema = new Schema({
     date: {type: Date, default: Date.now },
     active:{type: Boolean, default: true}
 });
-const User = mongoose.model("Subscription", subscriptionSchema);
+const Subscription = mongoose.model("Subscription", subscriptionSchema);
 
-module.exports = User;
+module.exports = Subscription;
 
 //Array of Price Objects
 //default = value we want to show to customer first
@@ -21,6 +21,11 @@ module.exports = User;
 //     {planName: "Prime",
 //     price: 20.00,
 //     frequency:"month",
-//     default: true}
+//     default: true},
+
+//      {planName: "Prime2",
+//      price: 40.00,
+//      frequency:"month",
+//      default: false}
 // ]
 

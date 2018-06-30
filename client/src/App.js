@@ -7,6 +7,9 @@ import Nav from "./components/Nav";
 import NewUser from './pages/Users/NewUsers'
 import Login from './pages/LogIn'
 import NewSubscription from './pages/Subscriptions/NewSubscription'
+import BrowseSubscriptions from './pages/Subscriptions/BrowseSubscriptions'
+import "./App.css";
+
 
 const App = () => (
   <Router>
@@ -18,6 +21,7 @@ const App = () => (
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
+        <Route exact path='/subscription' component={BrowseSubscriptions} />
         <Route component={NoMatch} />
       </Switch>
     </div>

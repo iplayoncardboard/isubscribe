@@ -1,0 +1,21 @@
+  img {
+      width:325px;
+      float: left;
+      padding: 20px;
+  }
+
+  a {
+     text-decoration: none;
+  }
+
+  a:hover { 
+    text-decoration: none;
+  }
+
+  #price {
+      text-align: right;
+  }
+
+  .card {
+      padding: 20px;
+  }
