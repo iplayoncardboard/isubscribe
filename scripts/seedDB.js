@@ -11,6 +11,38 @@ mongoose.connect(
   }
 );
 
+const categorySeed=[
+  {
+    name:"Video Streaming",
+    date: new Date(Date.now()),
+  },
+  {
+    name:"Music Streaming",
+    date: new Date(Date.now()),
+  },
+  {
+    name:"Food",
+    date: new Date(Date.now()),
+  },
+  {
+    name:"Subscription Box",
+    date: new Date(Date.now()),
+  },
+  {
+    name:"Gaming",
+    date: new Date(Date.now()),
+  },
+  {
+    name:"Movie Ticket",
+    date: new Date(Date.now()),
+  }
+  ,
+  {
+    name:"Pets",
+    date: new Date(Date.now()),
+  }
+]
+
 const subscriptionSeed = [
   {
     subscriptionName: "Netflix",
@@ -24,7 +56,7 @@ const subscriptionSeed = [
         {planName: "Standard", price: 10.99, frequency: "month", default: false},
         {planName: "Premium", price: 13.99, frequency: "month", default: false}
     ], 
-   // date: new Date(Date.now()),
+    date: new Date(Date.now()),
     active: true
   },
   {
@@ -39,11 +71,23 @@ const subscriptionSeed = [
         {planName: "5 clothing items + 3 accessories", price: 79, frequency: "month", default: false},
         {planName: "4 clothing", price: 69, frequency: "month", default: false}
     ], 
-  //  date: new Date(Date.now()),
+   date: new Date(Date.now()),
     active: true
   }
 ];
 
+
+db.Categories
+.remove({})
+  .then(() => db.Categories.collection.insertMany(categorySeed))
+  .then(data => {
+    console.log(data.insertedIds.length + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 db.Subscription
   .remove({})
