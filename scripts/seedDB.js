@@ -15,31 +15,38 @@ const categorySeed=[
   {
     name:"Video Streaming Service",
     date: new Date(Date.now()),
+    active:true
   },
   {
     name:"Music Streaming",
     date: new Date(Date.now()),
+    active:true
   },
   {
     name:"Food",
     date: new Date(Date.now()),
+    active:true
   },
   {
     name:"Subscription Box",
     date: new Date(Date.now()),
+    active:true
   },
   {
     name:"Gaming",
     date: new Date(Date.now()),
+    active:true
   },
   {
     name:"Movie Ticket",
     date: new Date(Date.now()),
+    active:true
   }
   ,
   {
     name:"Pets",
     date: new Date(Date.now()),
+    active:true
   }
   ,
   {

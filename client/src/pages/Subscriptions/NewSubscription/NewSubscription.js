@@ -23,7 +23,7 @@ import { stat } from 'fs';
         API.addSubscription({
             subscriptionName:this.state.subscriptionName,
             description: this.state.description,
-            selectedCategory:this.state.selectedCategory,
+            category:this.state.selectedCategory,
             iconURL:this.state.iconURL,
             url:this.state.url,
             price:this.state.price
@@ -32,12 +32,16 @@ import { stat } from 'fs';
 
     handleInputChange = (event) =>{
         const {name, value} = event.target;
+        console.log('name'+ name);
+        console.log('val: '+value);
         this.setState({
             [name]:value
         });
-        // console.log(this.state);
     }
-//DOUBLE CHECK THIS
+
+
+    
+
     getSubscriptions = () =>
     {
         API.getCategories()
@@ -73,7 +77,7 @@ import { stat } from 'fs';
             <Input name='subscriptionName' value={this.state.subscriptionName} onChange={this.handleInputChange} type='text' className='sub-input'/>
             <label>Subscription Description</label>
             <TextArea name='description' value={this.state.description} onChange={this.handleInputChange} className='sub-input'/>
-            <select name='category' onChange={this.handleInputChange}>
+            <select name='selectedCategory' onChange={this.handleInputChange}>
             {this.state.categories.map(category =>{
             if(category.active){
                 return(
