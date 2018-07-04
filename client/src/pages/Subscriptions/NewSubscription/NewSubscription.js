@@ -9,10 +9,11 @@ import { stat } from 'fs';
     state={
     subscriptionName: '',
     description: '',
-    category:"",
+    selectedCategory:"",
     iconURL: '',
     url: '',
     price: [1,2,3],
+    categories:[]
     }
 
     handleFormSubmit = (event)=>{
@@ -22,7 +23,7 @@ import { stat } from 'fs';
         API.addSubscription({
             subscriptionName:this.state.subscriptionName,
             description: this.state.description,
-            category:this.state.category,
+            selectedCategory:this.state.selectedCategory,
             iconURL:this.state.iconURL,
             url:this.state.url,
             price:this.state.price
@@ -36,9 +37,19 @@ import { stat } from 'fs';
         });
         // console.log(this.state);
     }
+//DOUBLE CHECK THIS
+    getSubscriptions = () =>
+    {
+        API.getCategories()
+        .then(response => {
+            console.log(response)
+            this.setState({categories:response.data})});
+    }
 
     componentWillMount(){
         //API call to get categories
+        this.getSubscriptions();
+        
         //Create component for category dropdown
     }
 
@@ -63,13 +74,13 @@ import { stat } from 'fs';
             <label>Subscription Description</label>
             <TextArea name='description' value={this.state.description} onChange={this.handleInputChange} className='sub-input'/>
             <select name='category' onChange={this.handleInputChange}>
-                <option value="Video Streaming">Video Streaming </option>
-                <option value="Subscription Box">Subscription Box</option>
-                <option value="Music Streaming ">Music Streaming </option>
-                <option value="Food">Food</option>
-                <option value="Gaming">Gaming</option>
-                <option value="Movie Ticket">Movie Ticket</option>
-                <option value="Pets">Pets</option>
+            {this.state.categories.map(category =>{
+            if(category.active){
+                return(
+               
+                    <option key={category._id} value={category.name}>{category.name} </option>
+                )}
+            })}
             </select>
             <label>Company URL</label>
             <Input name='url' value={this.state.url} onChange={this.handleInputChange} type='text' className='user-input'/>
