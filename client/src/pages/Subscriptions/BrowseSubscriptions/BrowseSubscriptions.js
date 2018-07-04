@@ -21,20 +21,20 @@ componentDidMount() {
      this.loadSubscriptions();
 }
       
-    loadSubscriptions = () => {
-          API.getSubscriptions()
-            .then(res =>
-                this.setState({
-                    subscriptionName: res.data, 
-                    price: res.data,
-                    description: "", 
-                    category: "",
-                    iconURL: "",
-                    url: ""
-                })
-            )
-            .catch(err => console.log(err));
-        };
+loadSubscriptions = () => {
+    API.getSubscriptions()
+        .then(res =>
+            this.setState({
+            subscriptionName: res.data, 
+            price: res.data,
+            description: "", 
+            category: "",
+            iconURL: "",
+            url: ""
+         })
+    )
+        .catch(err => console.log(err));
+};
       
     handleInputChange = event => {
           const { name, value } = event.target;
