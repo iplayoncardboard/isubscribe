@@ -13,12 +13,14 @@ class BrowseSubscriptions extends Component {
         description: "",
         category: "",
         iconURL: "",
-        url: ""
+        url: "",
+        categories: "",
       };
 
           
 componentDidMount() {
      this.loadSubscriptions();
+    //  this.getCategories(); //ADDED THIS
 }
       
 loadSubscriptions = () => {
@@ -35,8 +37,18 @@ loadSubscriptions = () => {
     )
         .catch(err => console.log(err));
 };
+
+// //ADDDED THIS
+// getCategories = () =>
+//     {
+//         API.getCategories()
+//         .then(response => {
+//             console.log(response)
+//             this.setState({categories:response.data})});
+//     }
+
       
-    handleInputChange = event => {
+handleInputChange = event => {
           const { name, value } = event.target;
           this.setState({
             [name]: value
