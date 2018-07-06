@@ -30,7 +30,7 @@ const Nav = props => (
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/login">My Account</a>
+        <a className="nav-link" onClick={props.auth.login}>{props.name}</a>
       </li>
     </ul>
   </div>

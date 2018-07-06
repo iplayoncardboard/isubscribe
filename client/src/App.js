@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Users from "./pages/Users/Users";
@@ -10,25 +10,35 @@ import Wrapper from './components/Wrapper'
 import NewSubscription from './pages/Subscriptions/NewSubscription'
 import BrowseSubscriptions from './pages/Subscriptions/BrowseSubscriptions'
 import "./App.css";
+import Secret from './components/Secret'
+import { PromiseProvider } from "mongoose";
 
 
-const App = () => (
+class App extends Component {
+
+  render() {
+    return(
+
+
   <Router>
     <div>
-      <Nav />
+      <Nav {...this.props}/>
       <Wrapper>
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={Landing} data />
         <Route exact path='/login' component={Login} />
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
         <Route exact path='/subscription' component={BrowseSubscriptions} />
+        <Route exact path='/secret' component={Secret} />
         <Route component={NoMatch} />
       </Switch>
       </ Wrapper>
     </div>
   </Router>
-);
+    )
+  }
+}
 
 export default App;
