@@ -16,23 +16,38 @@ import Auth from './Auth'
 
 
 
+const auth = new Auth();
+
 const PrivateRoute = ({ component: Component, ...rest}) => (
+
   <Route {...rest} render={(props) => (
-    props.auth.isAuthenticated === true
+    auth.isAuthenticated() === true
       ? <Component {...props} />
       : <Redirect to='/login' />
   )} />
 )
 
 
-
 class App extends Component {
+
+state = {
+
+  name:"Log In",
+  auth
+
+};
+
+
+componentDidMount() {
+
+  // console.log("Am I Authenticated " + auth.isAuthenticated()) ;
+}
+
   render() {
     return(
   <Router>
     <div>
-      <Nav {...this.props}/>
-      <div>{this.props.name}</div>
+      <Nav {...this.state}/>
       <Wrapper>
       <Switch>
         <Route exact path="/" component={Landing} data />
@@ -41,7 +56,7 @@ class App extends Component {
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
         <Route exact path='/subscription' component={BrowseSubscriptions} />
-        <PrivateRoute {...this.props} exact path='/secret' component={Secret} />
+        <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
         <Route component={NoMatch} />
       </Switch>
       </ Wrapper>

@@ -32,9 +32,12 @@ export default class Auth {
             
             else if(authResults && authResults.accessToken && authResults.idToken)
             {
-                let expiresAt=JSON.stringify((authResults.expiresIn)*1000 + new Date().tetTime());
+                console.log("Ugly Auth Restults" + authResults);
+                let expiresAt=JSON.stringify((authResults.expiresIn)*1000 + new Date().getTime());
                 localStorage.setItem("access_token", authResults.accessToken);
+                console.log("Restults Token"+ authResults.accessToken)
                 localStorage.setItem("id_token", authResults.idToken);
+                console.log("ID Token"+ authResults.idToken)
                 localStorage.setItem("expires_at", expiresAt);
                 location.hash = "";
                 location.pathname = LOGIN_SUCCESS_PAGE;

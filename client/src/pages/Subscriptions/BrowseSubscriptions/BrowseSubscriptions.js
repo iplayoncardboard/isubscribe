@@ -4,7 +4,10 @@ import API from "../../../utils/API";
 import { Link } from "react-router-dom";
 import BrowseCard from "../../../components/BrowseCard";
 import Wrapper from "../../../components/Wrapper";
+import Auth from '../../../Auth';
 //import subscriptions from "../../../puppies.json";
+
+
 
 class BrowseSubscriptions extends Component {
     state = {   
@@ -19,6 +22,8 @@ class BrowseSubscriptions extends Component {
           
 componentDidMount() {
      this.loadSubscriptions();
+     const auth = new Auth();
+     auth.handleAuthentication();
 }
       
 loadSubscriptions = () => {
