@@ -20,6 +20,9 @@ export default {
   getSubscriptions: function() {
     return axios.get("/api/subscriptions/");
   },
+  getMusic: function() { //ADDED
+    return axios.get("/api/subscriptions/music/");
+  },
   // Gets the book with the given id
   getSubscription: function(id) {
     return axios.get("/api/subscriptions/" + id);
@@ -27,6 +30,7 @@ export default {
   getCategories: () => {
     return axios.get('/api/categories/');
   }
+  
   // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);

@@ -168,19 +168,6 @@ const subscriptionSeed = [
     active: true
   },
   {
-    subscriptionName: "StitchFix",
-    description: "With this subscription box, a personal stylist will choose five pieces based on a style profile you make on the site. Once you get the box, you have three days to decide what you want to buy and what you want to send back. You can even send your stylist detailed feedback about the items, so she can make a better, more personalized selections the next time. There’s a $20 styling fee for every box, but that fee can be credited towards any item you decide to buy.",
-    category: "Fashion", 
-    iconURL:"https://i2.wp.com/pellerini.com/wp-content/uploads/2015/01/Logo_StitchFix_markTop_300pxw.jpg",
-    url: "https://www.stitchfix.com/",
-    accountURL: "https://www.stitchfix.com/login",
-    price: [
-        {planName: "StitchFix", price: 20.00, frequency: "month", default: true}
-      ], 
-    date: new Date(Date.now()),
-    active: true
-  },
-  {
     subscriptionName: "Golden Tote",
     description: "On the first Monday of every month, choose from the small tote (two to three pieces of clothing) or the large tote (five to six pieces of clothing). You select one or two pieces of clothing you love on the site and they’ll surprise you with other pieces. And since every tote is hand-selected, you’ll want to create a style profile so your shipment can be even more personalized.",
     category: "Fashion", 
@@ -362,6 +349,34 @@ const subscriptionSeed = [
     iconURL:"https://scdn.androidcommunity.com/wp-content/uploads/2017/05/Google-Play-Music-Logo.jpg",
     url: "https://play.google.com/music/listen?u=0#/sulp",
     accountURL: "https://play.google.com/music/listen?u=0#/home",
+    price: [
+        {planName: "Individual", price: 9.99, frequency: "month", default: true},
+        {planName: "Family", price: 14.99, frequency: "month", default: false}
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "iHeartRadio",
+    description: "iHeartRadio is a free broadcast and internet radio platform owned by iHeartMedia, Inc. and was founded in April 2008 as the website iheartmusic.com. As of 2017 iHeartRadio functions as a music recommender system and is the national umbrella brand for iHeartMedia's radio network aggregating its over 850 local iHeartMedia radio stations across the United States, as well as hundreds of other stations from various other media (with companies such as Cumulus Media, Cox Radio and Beasley Broadcast Group also utilizing this service). In addition, the service includes thousands of podcasts and now also offers on demand functionality and is the only service that allows listeners to save and replay songs right from live broadcast radio to their digital playlists. The on demand features require a subscription fee. iHeartRadio is available across more than 90 device platforms including online, via mobile devices, and on some video-game consoles.",
+    category: "Music Streaming", 
+    iconURL:"http://votiko.com/wp-content/uploads/2016/07/iheartradio-logo-1.jpg",
+    url: "https://www.iheart.com/",
+    accountURL: "https://www.iheart.com/my/",
+    price: [
+        {planName: "Individual", price: 9.99, frequency: "month", default: true},
+        {planName: "Family", price: 14.99, frequency: "month", default: false}
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "iHeartRadio",
+    description: "iHeartRadio is a free broadcast and internet radio platform owned by iHeartMedia, Inc. and was founded in April 2008 as the website iheartmusic.com. As of 2017 iHeartRadio functions as a music recommender system and is the national umbrella brand for iHeartMedia's radio network aggregating its over 850 local iHeartMedia radio stations across the United States, as well as hundreds of other stations from various other media (with companies such as Cumulus Media, Cox Radio and Beasley Broadcast Group also utilizing this service). In addition, the service includes thousands of podcasts and now also offers on demand functionality and is the only service that allows listeners to save and replay songs right from live broadcast radio to their digital playlists. The on demand features require a subscription fee. iHeartRadio is available across more than 90 device platforms including online, via mobile devices, and on some video-game consoles.",
+    category: "Music Streaming", 
+    iconURL:"http://votiko.com/wp-content/uploads/2016/07/iheartradio-logo-1.jpg",
+    url: "https://www.iheart.com/",
+    accountURL: "https://www.iheart.com/my/",
     price: [
         {planName: "Individual", price: 9.99, frequency: "month", default: true},
         {planName: "Family", price: 14.99, frequency: "month", default: false}

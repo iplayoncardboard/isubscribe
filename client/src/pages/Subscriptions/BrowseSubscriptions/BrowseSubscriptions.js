@@ -25,25 +25,25 @@ componentDidMount() {
 }
       
 loadSubscriptions = () => {
-    API.getSubscriptions()
+     API.getSubscriptions() 
+    // API.getMusic()   
         .then(res =>
             this.setState({
             subscriptionName: res.data, 
             price: res.data,
-            description: "", 
+            description: "",
             category: "",
             iconURL: "",
             url: "",
-            
          })
     )
-        .catch(err => console.log(err));
+    .catch(err => console.log(err));
+
 };
 
 // //ADDDED THIS
 getCategories = () =>
-    {
-        API.getCategories()
+    {API.getCategories()
         .then(response => {
             this.setState({
                 categories:response.data
@@ -91,9 +91,30 @@ render(){
             ))}
 
         </div>
-      <div className="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-      <div className="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-      <div className="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+
+        {/* Wrap this in a category map? */}
+
+{this.state.categories.map(categoryName =>( 
+                   
+        <div className="tab-pane fade" id="list-profile" role="tabpanel"> 
+        
+        {this.state.subscriptionName.map(subscriptions => (
+            <BrowseCard
+               key={subscriptions._id}
+                name={subscriptions.subscriptionName}
+                price={subscriptions.price}
+                category={subscriptions.category}
+                description={subscriptions.description}
+                iconURL={subscriptions.iconURL}
+                url={subscriptions.url}
+            />
+            ))}
+            </div>
+
+))}
+
+             {/* Wrap this in a category map? */}
+     
     </div>
   </div>
 </div>

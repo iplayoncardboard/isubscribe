@@ -14,7 +14,7 @@ import { stat } from 'fs';
     url: '',
     price: [1,2,3],
     categories:[]
-    }
+    };
 
     handleFormSubmit = (event)=>{
         event.preventDefault();
@@ -38,9 +38,6 @@ import { stat } from 'fs';
             [name]:value
         });
     }
-
-
-    
 
     getSubscriptions = () =>
     {
@@ -66,8 +63,6 @@ import { stat } from 'fs';
     // {props.frequency}
     // {props.default}
     // props.removeItem
-
-
 
     render(){
         return(

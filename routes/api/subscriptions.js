@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const subscriptionsController = require("../../controllers/subscriptionsController");
+router
+  .route("/music") //ADDED
+  .get(subscriptionsController.findMusic)
 
 //matches with "/api/subscriptions"
 router.route("/")
@@ -12,5 +15,7 @@ router
   .get(subscriptionsController.findById)
  // .put(subscriptionsController.update)
   // .delete(subscriptionsController.remove);
+
+
 
   module.exports = router;
