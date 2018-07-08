@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, {Component} from "react";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Users from "./pages/Users/Users";
 import NoMatch from "./pages/NoMatch";  
@@ -10,25 +10,60 @@ import Wrapper from './components/Wrapper'
 import NewSubscription from './pages/Subscriptions/NewSubscription'
 import BrowseSubscriptions from './pages/Subscriptions/BrowseSubscriptions'
 import "./App.css";
+import Secret from './components/Secret'
+import { PromiseProvider } from "mongoose";
+import Auth from './Auth'
 
 
-const App = () => (
+
+const auth = new Auth();
+
+const PrivateRoute = ({ component: Component, ...rest}) => (
+
+  <Route {...rest} render={(props) => (
+    auth.isAuthenticated() === true
+      ? <Component {...props} />
+      : <Redirect to='/login' />
+  )} />
+)
+
+
+class App extends Component {
+
+state = {
+
+  name:"Log In",
+  auth
+
+};
+
+
+componentDidMount() {
+
+  // console.log("Am I Authenticated " + auth.isAuthenticated()) ;
+}
+
+  render() {
+    return(
   <Router>
     <div>
-      <Nav />
+      <Nav {...this.state}/>
       <Wrapper>
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={Landing} data />
         <Route exact path='/login' component={Login} />
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
         <Route exact path='/subscription' component={BrowseSubscriptions} />
+        <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
         <Route component={NoMatch} />
       </Switch>
       </ Wrapper>
     </div>
   </Router>
-);
+    )
+  }
+}
 
 export default App;
