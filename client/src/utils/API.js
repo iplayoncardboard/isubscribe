@@ -20,9 +20,21 @@ export default {
   getSubscriptions: function() {
     return axios.get("/api/subscriptions/");
   },
-  getMusic: function() { //ADDED
+
+  //ADD FOR EACH CATEGORY
+  getMusic: function() { 
     return axios.get("/api/subscriptions/music/");
   },
+  getFood: function() { 
+    return axios.get("/api/subscriptions/food/");
+  },
+  getFashion: function() { 
+    return axios.get("/api/subscriptions/fashion/");
+  },
+  getVideo: function() { 
+    return axios.get("/api/subscriptions/video/");
+  },
+
   // Gets the book with the given id
   getSubscription: function(id) {
     return axios.get("/api/subscriptions/" + id);

@@ -15,14 +15,36 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findMusic: function(req, res) {  //ADDED, Literally just copied find all to see if it would work
+  //CATEGORY FILTERS
+  findMusic: function(req, res) {  
     db.Subscription
-     .find({category: "Music Streaming"})
-   // .find(req.query)
+    .find({category: "Music Streaming"})
     .sort({ date: -1 })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
+  findFood: function(req, res) {  
+    db.Subscription
+    .find({category: "Food"})
+    .sort({ date: -1 })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+  findFashion: function(req, res) {  
+    db.Subscription
+    .find({category: "Fashion"})
+    .sort({ date: -1 })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+  findVideo: function(req, res) {  
+    db.Subscription
+    .find({category: "Video Streaming Service"})
+    .sort({ date: -1 })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+
   create: (req, res) =>{
    // console.log('Controller returning req.body: ' + req.body);
     db.Subscription

@@ -1,3 +1,5 @@
+import BrowseSubscriptions from "../client/src/pages/Subscriptions/BrowseSubscriptions";
+
 const mongoose = require("mongoose");
 const db = require("../models");
 // mongoose.Promise = global.Promise;
@@ -12,13 +14,20 @@ mongoose.connect(
 );
 
 const categorySeed=[
+// FOR EVERY NEW CATEGORY ADDED, YOU NEED TO:
+//  add to:
+//  Controller > SUBSCRIPTIONCONTROLER
+//  UTILS > API
+//  ROUTES > API Subcriptions
+//  add to if statement on BrowseSubscriptions
+
   {
-    name:"Video Streaming Service",
+    name:"Video Streaming Service", 
     date: new Date(Date.now()),
     active:true
   },
   {
-    name:"Music Streaming",
+    name:"Music Streaming", //routing done
     date: new Date(Date.now()),
     active:true
   },
@@ -27,28 +36,6 @@ const categorySeed=[
     date: new Date(Date.now()),
     active:true
   },
-  {
-    name:"Subscription Box",
-    date: new Date(Date.now()),
-    active:true
-  },
-  {
-    name:"Gaming",
-    date: new Date(Date.now()),
-    active:true
-  },
-  {
-    name:"Movie Ticket",
-    date: new Date(Date.now()),
-    active:true
-  }
-  ,
-  {
-    name:"Pets",
-    date: new Date(Date.now()),
-    active:true
-  }
-  ,
   {
     name:"Fashion",
     date: new Date(Date.now()),
