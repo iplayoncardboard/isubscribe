@@ -18,37 +18,83 @@ class BrowseSubscriptions extends Component {
         category: "",
         iconURL: "",
         url: "",
-        categories:[]
+        categories:[],
       };
 
-          
 componentDidMount() {
      this.loadSubscriptions();
      const auth = new Auth();
      auth.handleAuthentication();
-     this.getCategories(); //added this
+     this.getCategories();
 }
       
 loadSubscriptions = () => {
-    API.getSubscriptions()
+     API.getSubscriptions() 
+    // API.getMusic()   
         .then(res =>
             this.setState({
             subscriptionName: res.data, 
             price: res.data,
-            description: "", 
+            description: "",
             category: "",
             iconURL: "",
             url: "",
-            
          })
     )
-        .catch(err => console.log(err));
+    .catch(err => console.log(err));
+
 };
 
-// //ADDDED THIS
+loadCatSubscriptions = catFilter => {
+    if (catFilter === "Music Streaming") {
+        API.getMusic().then(res =>
+            this.setState({
+                subscriptionName: res.data, 
+                price: res.data,
+                description: "",
+                category: "",
+                iconURL: "",
+                url: "",
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Food") {
+        API.getFood().then(res =>
+            this.setState({
+                subscriptionName: res.data, 
+                price: res.data,
+                description: "",
+                category: "",
+                iconURL: "",
+                url: "",
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Fashion") {
+        API.getFashion().then(res =>
+            this.setState({
+                subscriptionName: res.data, 
+                price: res.data,
+                description: "",
+                category: "",
+                iconURL: "",
+                url: "",
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Video Streaming Service") {
+        API.getVideo().then(res =>
+            this.setState({
+                subscriptionName: res.data, 
+                price: res.data,
+                description: "",
+                category: "",
+                iconURL: "",
+                url: "",
+            })).catch(err => console.log(err));
+    }
+};
+
+
 getCategories = () =>
-    {
-        API.getCategories()
+    {API.getCategories()
         .then(response => {
             this.setState({
                 categories:response.data
@@ -70,11 +116,15 @@ render(){
 
         <h1>Browse Subscriptions</h1>
         <div className="row">
-            <div className="col-4">
-                <div className="list-group" id="list-tab" role="tablist">
-                <a className="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">All Subscriptions</a>
-                    {this.state.categories.map(categoryName =>(
-                        <CatNav key={categoryName._id} categoryName={categoryName.name}/> 
+  <div className="col-4">
+    <div className="list-group" id="list-tab" role="tablist">
+               
+                
+                 <button onClick={() => this.loadSubscriptions()}>All Subscriptions</button>
+                 
+                {/* <a className="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" onClick={() => this.loadSubscriptions()}>All Subscriptions</a> */}
+                    {this.state.categories.map(categoryName =>( 
+                        <CatNav key={categoryName._id} categoryName={categoryName.name} loadCatSubscriptions={this.loadCatSubscriptions}/> 
                     ))} 
                 </div>    
             </div>
@@ -85,7 +135,7 @@ render(){
       
         {this.state.subscriptionName.map(subscriptions => (
             <BrowseCard
-               key={subscriptions._id}
+                key={subscriptions._id}
                 name={subscriptions.subscriptionName}
                 price={subscriptions.price}
                 category={subscriptions.category}
@@ -96,11 +146,8 @@ render(){
             ))}
 
         </div>
-      <div className="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-      <div className="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-      <div className="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
     </div>
-  </div>
+  </div>    
 </div>
 </ Wrapper>
 </div>
