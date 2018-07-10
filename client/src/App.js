@@ -39,7 +39,10 @@ state = {
 
 
 componentDidMount() {
-
+  if(auth.getProfile()){
+    this.setState({name:auth.getProfile().nickname});
+  }
+  console.log(auth.getProfile())
   // console.log("Am I Authenticated " + auth.isAuthenticated()) ;
 }
 

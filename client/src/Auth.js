@@ -1,6 +1,7 @@
 /* eslint no-restricted-globals: 0 */
 
 import auth0 from 'auth0-js';
+import jwtDecode from 'jwt-decode';
 
 const LOGIN_SUCCESS_PAGE = '/secret'
 const LOGIN_FAILURE_PAGE = '/subscription'
@@ -12,7 +13,7 @@ export default class Auth {
         redirectUri: 'http://localhost:3000/subscription',
         audience: 'https://isubscribe.auth0.com/api/v2/',
         responseType: 'token id_token',
-        scope:'openid'
+        scope:'openid profile' 
     });
 
     constructor(){
@@ -23,6 +24,23 @@ export default class Auth {
         this.auth0.authorize()
     }
 
+    logout(){
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("id_token");
+        localStorage.removeItem("expires_at");
+        location.pathname = LOGIN_FAILURE_PAGE;
+
+    }
+    getProfile (){
+        if(localStorage.getItem('id_token')){
+            return jwtDecode(localStorage.getItem('id_token'));
+        }
+
+        else{
+            return {};
+        }
+
+    }
     handleAuthentication(){
         this.auth0.parseHash((err, authResults)=>{
             if(err){
