@@ -10,7 +10,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'isubscribe.auth0.com',
         clientID: 'vLYPSGIwSBnJljvuT5hZLgBOKdzgh3I4',
-        redirectUri: 'http://localhost:3000/subscription',
+        redirectUri: 'https://isubscribe.herokuapp.com/subscription' || 'http://localhost:3000/subscription',
         audience: 'https://isubscribe.auth0.com/api/v2/',
         responseType: 'token id_token',
         scope:'openid profile' 
