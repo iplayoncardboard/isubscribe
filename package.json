@@ -29,8 +29,10 @@
     "babel-preset-env": "^1.7.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "fusioncharts": "^3.12.2",
     "if-env": "^1.0.4",
     "jwt-decode": "^2.2.0",
+    "react-fusioncharts": "^1.0.5",
     "mongoose": "4.11.0"
   }
 }
