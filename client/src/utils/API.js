@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all users
   getUsers: function() {
     return axios.get("/api/users");
   },
-  // Gets the book with the given id
+  // Gets the user with the given id
   getUser: function(id) {
     return axios.get("/api/users/" + id);
   },
