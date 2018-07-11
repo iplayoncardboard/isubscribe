@@ -6,6 +6,7 @@ import jwtDecode from 'jwt-decode';
 const LOGIN_SUCCESS_PAGE = '/secret'
 const LOGIN_FAILURE_PAGE = '/subscription'
 
+//added heroku path
 export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'isubscribe.auth0.com',
