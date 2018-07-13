@@ -18,6 +18,7 @@ class BrowseSubscriptions extends Component {
         category: "",
         iconURL: "",
         url: "",
+        price: {},
         categories:[],
       };
 
@@ -120,7 +121,7 @@ render(){
     <div className="list-group" id="list-tab" role="tablist">
                
                 
-                 <button onClick={() => this.loadSubscriptions()}>All Subscriptions</button>
+                 <button className="left-menu" onClick={() => this.loadSubscriptions()}>All Subscriptions</button>
                  
                 {/* <a className="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" onClick={() => this.loadSubscriptions()}>All Subscriptions</a> */}
                     {this.state.categories.map(categoryName =>( 
@@ -142,6 +143,7 @@ render(){
                 description={subscriptions.description}
                 iconURL={subscriptions.iconURL}
                 url={subscriptions.url}
+                price={subscriptions.price}
             />
             ))}
 
