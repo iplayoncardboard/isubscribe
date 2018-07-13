@@ -55,6 +55,7 @@ FusionCharts.ready(function() {
 
 class Profile extends Component {
     state = {   
+        user: {},
         subscriptionName: [], 
         price: [],
         description: "",
@@ -65,8 +66,14 @@ class Profile extends Component {
 
 componentDidMount() {
      this.loadSubscriptions();
+     console.log("props"+JSON.stringify(this.props));   
+
 }
-      
+
+getUser = () => {
+    API.getUser()
+}
+
 loadSubscriptions = () => {
      API.getSubscriptions() 
         .then(res =>
@@ -95,12 +102,12 @@ handleInputChange = event => {
 render(){
     return(
         <div>
-             <Wrapper>
-        <h1>Charts</h1>
+        <h1>Welcome {this.props.name}</h1>
+        <h3>Charts</h3>
 
-<Charts/>
+            <Charts/>
 
-</ Wrapper>
+ 
 </div>
     )
 }

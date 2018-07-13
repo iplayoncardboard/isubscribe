@@ -3,7 +3,7 @@
 import auth0 from 'auth0-js';
 import jwtDecode from 'jwt-decode';
 
-const LOGIN_SUCCESS_PAGE = '/secret'
+const LOGIN_SUCCESS_PAGE = '/profile'
 const LOGIN_FAILURE_PAGE = '/subscription'
 
 //added heroku path
@@ -11,7 +11,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'isubscribe.auth0.com',
         clientID: 'vLYPSGIwSBnJljvuT5hZLgBOKdzgh3I4',
-        redirectUri: 'https://isubscribe.herokuapp.com/subscription' || 'http://localhost:3000/subscription',
+        redirectUri: 'http://localhost:3000/callback'||'https://isubscribe.herokuapp.com/subscription',
         audience: 'https://isubscribe.auth0.com/api/v2/',
         responseType: 'token id_token',
         scope:'openid profile' 

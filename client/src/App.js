@@ -9,6 +9,7 @@ import Login from './pages/LogIn'
 import Wrapper from './components/Wrapper'
 import NewSubscription from './pages/Subscriptions/NewSubscription'
 import BrowseSubscriptions from './pages/Subscriptions/BrowseSubscriptions'
+import Callback from './pages/Callback'
 import Profile from './pages/Profile'
 import "./App.css";
 import Secret from './components/Secret'
@@ -19,7 +20,7 @@ import Auth from './Auth'
 
 const auth = new Auth();
 
-const PrivateRoute = ({ component: Component, ...rest}) => (
+const PrivateRoute = ({ render: Component, ...rest}) => (
 
   <Route {...rest} render={(props) => (
     auth.isAuthenticated() === true
@@ -57,12 +58,13 @@ componentDidMount() {
       <Wrapper>
       <Switch>
         <Route exact path="/" component={Landing} data />
-        <Route exact path='/login' component={Login} />
+        <Route exact path='/login' component={Login} auth={this.state.auth}/>
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
         <Route exact path='/subscription' component={BrowseSubscriptions} />
-        <Route exact path='/profile' component={Profile} />
+        <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} />) }   />
+        <Route exact path='/callback' component={Callback} />
         <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
         <Route component={NoMatch} />
       </Switch>
