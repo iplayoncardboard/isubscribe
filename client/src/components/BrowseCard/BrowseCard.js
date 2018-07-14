@@ -19,7 +19,7 @@ const BrowseCard = props => (
     <div className="img-container" >
     <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal" onClick={() => addToProfileModal(props.name, props.price)}>Add to Profile</button>
     <a href={props.url}><img src ={props.iconURL} alt={props.name}/></a>
-    <a href={props.url}> <h2>{props.name} </h2></a>
+    <a href={props.url}> <h2>{props.name}</h2></a>
     <p>Category: {props.category}</p>
     <p>{props.description}</p>
     <p id="price">Starting at: ${props.price[0].price} per {props.price[0].frequency}</p>

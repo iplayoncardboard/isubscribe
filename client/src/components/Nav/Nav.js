@@ -5,7 +5,7 @@ import "./Nav.css";
 
 const Nav = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">iSubscribe LOGO HERE</a>
+  <a className="navbar-brand" href="/"><img src="../assets/images/ISubscribe.png" alt="isubscribe"/></a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -14,8 +14,7 @@ const Nav = props => (
       <li className="nav-item active">
         <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
       </li>
-      
-      
+         
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Browse Subscriptions
@@ -25,8 +24,6 @@ const Nav = props => (
         <a className="dropdown-item" href="/subscription">Browse all Subscriptions</a>
 
           <a className="dropdown-item" href="/subscription/new">Add New Subscriptions</a>
-          <a className="dropdown-item" href="#">Category 2</a>
-          <a className="dropdown-item" href="#">Category 3</a>
         </div>
       </li>
       <li className="nav-item">

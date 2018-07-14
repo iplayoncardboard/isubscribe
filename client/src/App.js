@@ -57,7 +57,7 @@ componentDidMount() {
   <Router>
     <div>
       <Nav {...this.state}/>
-      <Wrapper>
+     <Wrapper>
       <Switch>
         <Route exact path="/" render={(props) =><Landing {...props} auth={this.state.auth}/>} />
         <Route exact path='/login' component={Login} auth={this.state.auth}/>
