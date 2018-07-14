@@ -54,7 +54,7 @@ componentDidMount() {
   <Router>
     <div>
       <Nav {...this.state}/>
-      <Wrapper>
+     <Wrapper>
       <Switch>
         <Route exact path="/" component={Landing} data />
         <Route exact path='/login' component={Login} />
