@@ -35,6 +35,7 @@ class App extends Component {
 state = {
 
   name:"Log In",
+  email:"",
   auth
 
 };
@@ -42,6 +43,7 @@ state = {
 
 componentDidMount() {
   if(auth.getProfile().nickname){
+    this.setState({email:auth.getProfile().name})
     this.setState({name:auth.getProfile().nickname})
   }
   else {
@@ -57,13 +59,13 @@ componentDidMount() {
       <Nav {...this.state}/>
       <Wrapper>
       <Switch>
-        <Route exact path="/" component={Landing} data />
+        <Route exact path="/" render={(props) =><Landing {...props} auth={this.state.auth}/>} />
         <Route exact path='/login' component={Login} auth={this.state.auth}/>
         <Route exact path='/users/new' component={NewUser} />
         <Route exact path="/users/:id" component={Users} />
         <Route exact path='/subscription/new' component={NewSubscription} />
         <Route exact path='/subscription' component={BrowseSubscriptions} />
-        <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} />) }   />
+        <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} email={this.state.email} />) }   />
         <Route exact path='/callback' component={Callback} />
         <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
         <Route component={NoMatch} />

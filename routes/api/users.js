@@ -6,6 +6,8 @@ router.route("/")
   .get(usersController.findAll)
   .post(usersController.create);
 
+  router.route('/:email')
+  .get(usersController.update)
 // // Matches with "/api/books/:id"
 // router
 //   .route("/:id")

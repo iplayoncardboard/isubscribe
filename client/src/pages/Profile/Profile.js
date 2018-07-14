@@ -66,12 +66,18 @@ class Profile extends Component {
 
 componentDidMount() {
      this.loadSubscriptions();
-     console.log("props"+JSON.stringify(this.props));   
+     this.getUser(this.props.email);
+    //  console.log("props"+JSON.stringify(this.props));   
 
 }
 
-getUser = () => {
-    API.getUser()
+getUser = (email) => {
+    API.getUser(email).then(
+        res => 
+        this.setState({user:res.data})
+    )
+    .then(console.log("State: "+JSON.stringify(this.state)))
+    .catch(err => console.log(err));
 }
 
 loadSubscriptions = () => {
@@ -103,6 +109,8 @@ render(){
     return(
         <div>
         <h1>Welcome {this.props.name}</h1>
+        <h2>Your email is {this.props.email}</h2>
+        <h3>Found user {this.state.user.name}</h3>
         <h3>Charts</h3>
 
             <Charts/>
