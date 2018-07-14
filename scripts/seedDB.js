@@ -356,35 +356,8 @@ const subscriptionSeed = [
       ], 
     date: new Date(Date.now()),
     active: true
-  },
-  {
-    subscriptionName: "iHeartRadio",
-    description: "iHeartRadio is a free broadcast and internet radio platform owned by iHeartMedia, Inc. and was founded in April 2008 as the website iheartmusic.com. As of 2017 iHeartRadio functions as a music recommender system and is the national umbrella brand for iHeartMedia's radio network aggregating its over 850 local iHeartMedia radio stations across the United States, as well as hundreds of other stations from various other media (with companies such as Cumulus Media, Cox Radio and Beasley Broadcast Group also utilizing this service). In addition, the service includes thousands of podcasts and now also offers on demand functionality and is the only service that allows listeners to save and replay songs right from live broadcast radio to their digital playlists. The on demand features require a subscription fee. iHeartRadio is available across more than 90 device platforms including online, via mobile devices, and on some video-game consoles.",
-    category: "Music Streaming", 
-    iconURL:"http://votiko.com/wp-content/uploads/2016/07/iheartradio-logo-1.jpg",
-    url: "https://www.iheart.com/",
-    accountURL: "https://www.iheart.com/my/",
-    price: [
-        {planName: "Individual", price: 9.99, frequency: "month", default: true},
-        {planName: "Family", price: 14.99, frequency: "month", default: false}
-      ], 
-    date: new Date(Date.now()),
-    active: true
-  },
-  {
-    subscriptionName: "iHeartRadio",
-    description: "iHeartRadio is a free broadcast and internet radio platform owned by iHeartMedia, Inc. and was founded in April 2008 as the website iheartmusic.com. As of 2017 iHeartRadio functions as a music recommender system and is the national umbrella brand for iHeartMedia's radio network aggregating its over 850 local iHeartMedia radio stations across the United States, as well as hundreds of other stations from various other media (with companies such as Cumulus Media, Cox Radio and Beasley Broadcast Group also utilizing this service). In addition, the service includes thousands of podcasts and now also offers on demand functionality and is the only service that allows listeners to save and replay songs right from live broadcast radio to their digital playlists. The on demand features require a subscription fee. iHeartRadio is available across more than 90 device platforms including online, via mobile devices, and on some video-game consoles.",
-    category: "Music Streaming", 
-    iconURL:"http://votiko.com/wp-content/uploads/2016/07/iheartradio-logo-1.jpg",
-    url: "https://www.iheart.com/",
-    accountURL: "https://www.iheart.com/my/",
-    price: [
-        {planName: "Individual", price: 9.99, frequency: "month", default: true},
-        {planName: "Family", price: 14.99, frequency: "month", default: false}
-      ], 
-    date: new Date(Date.now()),
-    active: true
   }
+ 
 ];
 
 
