@@ -7,9 +7,6 @@ import CatNav from "../../../components/CatNav";
 import Wrapper from "../../../components/Wrapper";
 import Auth from '../../../Auth';
 
-
-
-
 class BrowseSubscriptions extends Component {
     state = {   
         subscriptionName: [], 
