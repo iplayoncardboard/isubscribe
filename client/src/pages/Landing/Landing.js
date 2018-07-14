@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./Landing.css";
+import Jumbotron from "../../components/Jumbotron";
 
 
 class Landing extends Component{
@@ -9,7 +11,7 @@ class Landing extends Component{
 
     render(){
         return(
-            <h1>Landing Page</h1>
+   <Jumbotron/>
         )
     }
 
