@@ -10,19 +10,19 @@ const BrowseCard = props => (
   <div className="card">
     <div className="img-container" >
     <Popup
-    trigger={<button className="button btn btn-info">Add to Profile</button>}
+    trigger={<button className="button btn btn-orange">Add to Profile</button>}
     modal
     closeOnDocumentClick
-  ><h2>Select Your {props.name} Subscription Plan</h2>
+  ><div className="popup"><h2>Select Your {props.name} Subscription Plan</h2><br/>
   {props.price.map(plans => (
       <div id="individual-plans">    
-      {plans.planName}: ${plans.price} per {plans.frequency}<button className="button btn btn-info">Add to Profile</button>
+      <b>{plans.planName}</b>: ${plans.price} per {plans.frequency}<button className="button btn btn-orange">Add to Profile</button>
       </div>
     ))}
-
+</div>
   </Popup>
     {/* <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal" onClick={() => addToProfileModal(props.name, props.price)}>Add to Profile</button> */}
-    <a href={props.url}><img src ={props.iconURL} alt={props.name}/></a>
+    <a href={props.url}><img className="Subscription-Logo" src ={props.iconURL} alt={props.name} /></a>
     <a href={props.url}> <h2>{props.name}</h2></a>
     <p>Category: {props.category}</p>
     <p>{props.description}</p>

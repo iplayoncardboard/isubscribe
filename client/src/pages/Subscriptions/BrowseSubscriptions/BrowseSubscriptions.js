@@ -113,13 +113,11 @@ render(){
         <div>
              <Wrapper>
 
-        <h1>Browse Subscriptions</h1>
+<br/><br/>
         <div className="row">
   <div className="col-4">
     <div className="list-group" id="list-tab" role="tablist">
-               
-                
-                 <button className="left-menu" onClick={() => this.loadSubscriptions()}>All Subscriptions</button>
+                 <button className="left-menu" onClick={() => this.loadSubscriptions()}><b>All Subscriptions</b></button>
                  
                 {/* <a className="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" onClick={() => this.loadSubscriptions()}>All Subscriptions</a> */}
                     {this.state.categories.map(categoryName =>( 
