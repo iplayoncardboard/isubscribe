@@ -13,25 +13,8 @@ class Landing extends Component{
     render(){
         return(
             <div>
-
-   
-
-
-
-
-
-
-  <Jumbotron/>
+  <Jumbotron {...this.props}/>
   <HomepageCallouts/> 
-
-
-
-
-
-
-
-
-
 
    </div>
         )
