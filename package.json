@@ -32,7 +32,8 @@
     "fusioncharts": "^3.12.2",
     "if-env": "^1.0.4",
     "jwt-decode": "^2.2.0",
+    "mongoose": "4.11.0",
     "react-fusioncharts": "^1.0.5",
-    "mongoose": "4.11.0"
+    "reactjs-popup": "^1.1.1"
   }
 }
