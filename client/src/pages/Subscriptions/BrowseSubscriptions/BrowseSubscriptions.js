@@ -6,6 +6,7 @@ import BrowseCard from "../../../components/BrowseCard";
 import CatNav from "../../../components/CatNav";
 import Wrapper from "../../../components/Wrapper";
 import Auth from '../../../Auth';
+import Popup from "reactjs-popup";
 
 class BrowseSubscriptions extends Component {
     state = {   
@@ -142,12 +143,16 @@ render(){
                 url={subscriptions.url}
                 price={subscriptions.price}
             />
+       
+            
             ))}
 
         </div>
     </div>
   </div>    
 </div>
+
+
 </ Wrapper>
 </div>
     )
