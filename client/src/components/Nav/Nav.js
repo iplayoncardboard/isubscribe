@@ -1,5 +1,7 @@
 import React from "react";
 import "./Nav.css";
+import { BrowserRouter as Redirect, Route, Link } from "react-router-dom";
+import Profile from '../../pages/Profile'
 
 //Need to load categories dynamically in dropdown
 
@@ -27,7 +29,7 @@ const Nav = props => (
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" onClick={props.auth.login}>{props.name}</a>
+        <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? console.log('add Rediret') :props.auth.login()}}>{props.name}</a>
       </li>
     </ul>
   </div>
@@ -36,3 +38,8 @@ const Nav = props => (
   );
 
 export default Nav;
+
+
+// props.auth.isAuthenticated()===true ? props.auth.login : <Redirect to='/profile'/>
+// console.log(props.auth.isAuthenticated())
+
