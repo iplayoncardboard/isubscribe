@@ -3,8 +3,9 @@ import "./Profile.css";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Charts from "../../components/Charts";
-import Wrapper from "../../components/Wrapper";
+import { Input, FormBtn } from "../../components/Form";
 import FusionCharts from 'fusioncharts';
+
 
 FusionCharts.ready(function() {
 
@@ -55,18 +56,46 @@ FusionCharts.ready(function() {
 
 class Profile extends Component {
     state = {   
+        user: {},
         subscriptionName: [], 
         price: [],
         description: "",
         category: "",
         iconURL: "",
         url: "",
+        // copied from newUser
+        email:"",
+        firstName:"",
+        lastName:"",
+        street:"",
+        apartment:"",
+        city:"",
+        state:"",
+        zip:"",
+        age:""
       };
 
 componentDidMount() {
+    this.getUser(this.props.email);
      this.loadSubscriptions();
+     
+    //  console.log("props"+JSON.stringify(this.props));   
+
 }
-      
+
+getUser = (email) => {
+    API.getUser(email).then(
+        res => {
+        this.setState({user:{
+            email: res.data.email
+            
+        }})
+        console.log("API RESPONSE: "+JSON.stringify(res.data))
+        }
+    )
+    .catch(err => console.log(err));
+}
+
 loadSubscriptions = () => {
      API.getSubscriptions() 
         .then(res =>
@@ -95,12 +124,39 @@ handleInputChange = event => {
 render(){
     return(
         <div>
-             <Wrapper>
-        <h1>Charts</h1>
+        <h1>Welcome {this.props.name}</h1>
+        <h2>Your email is {this.props.email}</h2>
+        <h3>Found user {this.state.user.name}</h3>
+        <div className='form-container'>
+        <form>
+            <label>Email Address</label>
+            <Input name='email' value={this.state.email} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>password</label>
+            <Input name='password' value={this.state.password} onChange={this.handleInputChange} type='password' className='user-input'/>
+            <label>First Name</label>
+            <Input name='firstName' value={this.state.firstName} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Last Name</label>
+            <Input name='lastName' value={this.state.lastName} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Age</label>
+            <Input name='age' value={this.state.age} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Street</label>
+            <Input name='street' value={this.state.street} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Apartment Number</label>
+            <Input name='apartment' value={this.state.apartment} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>City</label>
+            <Input name='city' value={this.state.city} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>State</label>
+            <Input name='state' value={this.state.state} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <label>Zip</label>
+            <Input name='zip' value={this.state.zip} onChange={this.handleInputChange} type='text' className='user-input'/>
+            <FormBtn onClick={this.handleFormSubmit}>Submit</FormBtn>
+        </form>
+    </div>
+        <h3>Charts</h3>
 
-<Charts/>
+            <Charts/>
 
-</ Wrapper>
+ 
 </div>
     )
 }

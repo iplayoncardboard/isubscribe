@@ -21,7 +21,14 @@ module.exports = {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  update: function(req,res){
+    db.User
+    .findOneAndUpdate({email: req.params.email},req.body,{upsert:true})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   }
+  
   // update: function(req, res) {
   //   db.Book
   //     .findOneAndUpdate({ _id: req.params.id }, req.body)
