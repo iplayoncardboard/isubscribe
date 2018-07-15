@@ -7,7 +7,7 @@ export default {
   },
   // Gets the user with the given id
   getUser: function(email) {
-    return axios.get("/api/users/",email);
+    return axios.get(`/api/users/${email}`);
   },
   // Adds a user to the db
   addUser: (userData) => {

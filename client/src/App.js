@@ -54,25 +54,25 @@ componentDidMount() {
 
   render() {
     return(
-  <Router>
-    <div>
-      <Nav {...this.state}/>
-     <Wrapper>
-      <Switch>
-        <Route exact path="/" render={(props) =><Landing {...props} auth={this.state.auth}/>} />
-        <Route exact path='/login' component={Login} auth={this.state.auth}/>
-        <Route exact path='/users/new' component={NewUser} />
-        <Route exact path="/users/:id" component={Users} />
-        <Route exact path='/subscription/new' component={NewSubscription} />
-        <Route exact path='/subscription' component={BrowseSubscriptions} />
-        <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} email={this.state.email} />) }   />
-        <Route exact path='/callback' component={Callback} />
-        <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
-        <Route component={NoMatch} />
-      </Switch>
-      </ Wrapper>
-    </div>
-  </Router>
+      <Router>
+        <div>
+          <Nav {...this.state}/>
+        <Wrapper>
+          <Switch>
+            <Route exact path="/" render={(props) =><Landing {...props} auth={this.state.auth}/>} />
+            <Route exact path='/login' component={Login} auth={this.state.auth}/>
+            <Route exact path='/users/new' component={NewUser} />
+            <Route exact path="/users/:id" component={Users} />
+            <Route exact path='/subscription/new' component={NewSubscription} />
+            <Route exact path='/subscription' component={BrowseSubscriptions} />
+            <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} email={this.state.email} />) }   />
+            <Route exact path='/callback' component={Callback} />
+            <PrivateRoute auth={this.state.auth} exact path='/secret' component={Secret} />
+            <Route component={NoMatch} />
+          </Switch>
+          </ Wrapper>
+        </div>
+      </Router>
     )
   }
 }

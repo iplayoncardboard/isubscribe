@@ -65,16 +65,19 @@ class Profile extends Component {
       };
 
 componentDidMount() {
+    this.getUser(this.props.email);
      this.loadSubscriptions();
-     this.getUser(this.props.email);
+     
     //  console.log("props"+JSON.stringify(this.props));   
 
 }
 
 getUser = (email) => {
     API.getUser(email).then(
-        res => 
-        this.setState({user:res.data})
+        res => {
+        this.setState({user:{name: res.data.email}})
+        console.log("API RESPONSE: "+JSON.stringify(res.data))
+        }
     )
     .then(console.log("State: "+JSON.stringify(this.state)))
     .catch(err => console.log(err));
