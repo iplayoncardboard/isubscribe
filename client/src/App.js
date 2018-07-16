@@ -36,18 +36,30 @@ state = {
 
   name:"Log In",
   email:"",
-  auth
+  auth,
+  navMessage:"Log In"
 
 };
 
 
 componentDidMount() {
-  if(auth.getProfile().nickname){
-    this.setState({email:auth.getProfile().name})
-    this.setState({name:auth.getProfile().nickname})
+  let profile = auth.getProfile()
+  console.log(profile);
+  if(profile.nickname){
+    if(profile.sub.startsWith('google-oauth2')){
+      console.log('Google')
+      this.setState({email:`${profile.nickname}@gmail.com`})
+      this.setState({name:profile.name})
+    }
+    else if(profile.sub.startsWith('auth0')){
+      console.log('Email')
+      this.setState({email:profile.name})
+      this.setState({name:profile.nickname})
+    }
+    
   }
   else {
-    this.setState({name:"Log In"});
+    this.setState({navMessage:"Log In"});
     console.log(this.state);
   }
 }

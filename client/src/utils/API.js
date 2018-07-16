@@ -13,6 +13,9 @@ export default {
   addUser: (userData) => {
     return axios.post('/api/users',userData);
   },
+  updateUser: (userData) => {
+    return axios.put(`/api/users/${userData.email}`, userData)
+  },
   //Add a subscription to the database
   addSubscription: (subscriptionData) => {
     return axios.post('/api/subscriptions',subscriptionData);

@@ -56,7 +56,7 @@ FusionCharts.ready(function() {
 
 class Profile extends Component {
     state = {   
-        user: {},
+        user: "",
         subscriptionName: [], 
         price: [],
         description: "",
@@ -72,32 +72,43 @@ class Profile extends Component {
         city:"",
         state:"",
         zip:"",
-        age:""
+        age:"",
+        editing: false
       };
 
 componentDidMount() {
     this.getUser(this.props.email);
      this.loadSubscriptions();
      
-    //  console.log("props"+JSON.stringify(this.props));   
+     console.log("props"+JSON.stringify(this.props));   
 
 }
 
 getUser = (email) => {
     API.getUser(email).then(
         res => {
-        this.setState({user:{
-            email: res.data.email
-            
-        }})
+            console.log(res.data);
+        this.setState({
+            email: res.data.email,
+            firstName:res.data.firstName,
+            lastName:res.data.lastName
+
+            })
         console.log("API RESPONSE: "+JSON.stringify(res.data))
         }
     )
     .catch(err => console.log(err));
 }
 
+updateUser = (state) => {
+    API.updateUser(state)
+    .then(
+        // this.setState({editing:false})
+    )
+}
+
 loadSubscriptions = () => {
-     API.getSubscriptions() 
+     API.getSubscriptions()
         .then(res =>
             this.setState({
             subscriptionName: res.data, 
@@ -126,13 +137,9 @@ render(){
         <div>
         <h1>Welcome {this.props.name}</h1>
         <h2>Your email is {this.props.email}</h2>
-        <h3>Found user {this.state.user.name}</h3>
+        <h3>Found user {this.state.email}</h3>
         <div className='form-container'>
         <form>
-            <label>Email Address</label>
-            <Input name='email' value={this.state.email} onChange={this.handleInputChange} type='text' className='user-input'/>
-            <label>password</label>
-            <Input name='password' value={this.state.password} onChange={this.handleInputChange} type='password' className='user-input'/>
             <label>First Name</label>
             <Input name='firstName' value={this.state.firstName} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Last Name</label>
@@ -149,7 +156,7 @@ render(){
             <Input name='state' value={this.state.state} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Zip</label>
             <Input name='zip' value={this.state.zip} onChange={this.handleInputChange} type='text' className='user-input'/>
-            <FormBtn onClick={this.handleFormSubmit}>Submit</FormBtn>
+            <FormBtn onClick={this.updateUser(this.state)}>Submit</FormBtn>
         </form>
     </div>
         <h3>Charts</h3>
