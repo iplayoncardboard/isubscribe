@@ -36,6 +36,7 @@ state = {
 
   name:"Log In",
   email:"",
+  imageURL:'',
   auth,
   navMessage:"Log In"
 
@@ -50,11 +51,13 @@ componentDidMount() {
       console.log('Google')
       this.setState({email:`${profile.nickname}@gmail.com`})
       this.setState({name:profile.name})
+      this.setState({imageURL:profile.picture})
     }
     else if(profile.sub.startsWith('auth0')){
       console.log('Email')
       this.setState({email:profile.name})
       this.setState({name:profile.nickname})
+      this.setState({imageURL:profile.picture})
     }
     
   }
