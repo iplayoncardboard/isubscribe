@@ -33,7 +33,7 @@ const Nav = props => (
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? console.log('add Rediret') :props.auth.login()}}>{props.name}</a>
+        <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? console.log('add Rediret'):props.auth.login()}}>{props.navMessage}</a>
       </li>
     </ul>
   </div>

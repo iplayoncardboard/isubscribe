@@ -8,6 +8,7 @@ router.route("/")
 
   router.route('/:email')
   .get(usersController.update)
+  .put(usersController.update)
 // // Matches with "/api/books/:id"
 // router
 //   .route("/:id")
