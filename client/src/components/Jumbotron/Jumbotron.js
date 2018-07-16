@@ -1,4 +1,5 @@
 import React from "react";
+import "./Jumbotron.css";
 
 const Jumbotron = (props) => (
   // <div
@@ -6,17 +7,18 @@ const Jumbotron = (props) => (
   //   className="jumbotron"
   // >
 
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+           <div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid bg-1 text-center">
       <br/><br/><br/><br/><br/>
     <h1 class="display-4">It’s all coming together...</h1>
     <p class="lead">Stop wasting money on subscriptions you don’t use - effortless manage all your subscription services in one place, track your spending & discover new subscriptions you’ll love!
-    <center><button type="button" class="btn btn-warning" onClick={props.auth.login}>Sign Up Today >></button></center></p>
+    </p>
+    <button type="button" class="btn btn-signup" onClick={props.auth.login}>Sign Up Today >></button>
     <br/><br/><br/><br/><br/>
+    </div> 
   </div> 
-     
-</div> 
-    
+
+
   // </div>
 );
 
