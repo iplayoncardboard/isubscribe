@@ -8,6 +8,8 @@ import Wrapper from "../../../components/Wrapper";
 import Auth from '../../../Auth';
 import Popup from "reactjs-popup";
 
+const auth = new Auth();
+
 class BrowseSubscriptions extends Component {
     state = {   
         subscriptionName: [], 
@@ -19,10 +21,12 @@ class BrowseSubscriptions extends Component {
         price: {},
         categories:[],
       };
+      
+
 
 componentDidMount() {
      this.loadSubscriptions();
-     const auth = new Auth();
+    
      auth.handleAuthentication();
      this.getCategories();
 }
@@ -123,7 +127,15 @@ render(){
                     {this.state.categories.map(categoryName =>( 
                         <CatNav key={categoryName._id} categoryName={categoryName.name} loadCatSubscriptions={this.loadCatSubscriptions}/> 
                     ))} 
-                </div>    
+
+             
+
+       {/* <button onClick={()=>{auth.isAuthenticated()===true ? console.log("not loged in"):console.log("logged out")}}>TEST</button> */}
+                </div><br/>
+                {auth.isAuthenticated()===true ?
+
+<a href="/subscription/new"><button className="btn-custom">Add a Custom Subscriptions to My Profile</button></a>
+: <span></span> }    
             </div>
 
   <div className="col-8">
@@ -140,9 +152,7 @@ render(){
                 iconURL={subscriptions.iconURL}
                 url={subscriptions.url}
                 price={subscriptions.price}
-            />
-       
-            
+            />      
             ))}
 
         </div>
