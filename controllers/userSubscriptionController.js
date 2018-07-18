@@ -13,10 +13,7 @@ module.exports= {
            .create(req.body)
            .then(dbModel => res.json(dbModel))
            .then(function(dbSub) {
-            // If a Book was created successfully, find one library (there's only one) and push the new Book's _id to the Library's `books` array
-            // { new: true } tells the query that we want it to return the updated Library -- it returns the original by default
-            // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-            return db.User.findOneAndUpdate({}, { $push: { books: dbSub._id } }, { new: true });
+            return db.User.findOneAndUpdate({email:req.params.email}, { $push: { subscriptions: dbSub._id } }, { new: true });
           })
            .catch(err => res.status(422).json(err));
        }

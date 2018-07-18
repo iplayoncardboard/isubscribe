@@ -48,18 +48,15 @@ componentDidMount() {
   console.log(profile);
   if(profile.nickname){
     if(profile.sub.startsWith('google-oauth2')){
-      console.log('Google')
       this.setState({email:`${profile.nickname}@gmail.com`})
       this.setState({name:profile.name})
       this.setState({imageURL:profile.picture})
     }
     else if(profile.sub.startsWith('auth0')){
-      // console.log(`Image URL ${profile.picture}`)
       this.setState({email:profile.name})
       this.setState({name:profile.nickname})
       this.setState({imageURL:profile.picture})
     }
-    
   }
   else {
     this.setState({navMessage:"Log In"});
@@ -78,7 +75,7 @@ componentDidMount() {
             <Route exact path='/login' component={Login} auth={this.state.auth}/>
             <Route exact path='/users/new' component={NewUser} />
             <Route exact path="/users/:id" component={Users} />
-            <Route exact path='/subscription/new' component={NewSubscription} />
+            <PrivateRoute exact path='/subscription/new' render={NewSubscription} />
             <Route exact path='/subscription' component={BrowseSubscriptions} />
             <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} email={this.state.email} imageURL={this.state.imageURL} />) }   />
             <Route exact path='/callback' component={Callback} />
