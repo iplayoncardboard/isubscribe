@@ -32,9 +32,18 @@ const Nav = props => (
           <a className="dropdown-item" href="/subscription/new">Add New Subscriptions</a>
         </div>
       </li> */}
+      {props.auth.isAuthenticated()===true ?
+      <li className="nav-item">
+        <a className="nav-link" href="/profile">My Profile</a>
+      </li>
+      : <li className="nav-item">
+      <a className="nav-link"></a>
+    </li> }
       <li className="nav-item">
         <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? props.auth.logout():props.auth.login()}}>{props.navMessage}</a>
       </li>
+      
+
     </ul>
   </div>
 </nav>
