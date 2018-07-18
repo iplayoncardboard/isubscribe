@@ -67,9 +67,9 @@ class Profile extends Component {
         email:"",
         firstName:"",
         lastName:"",
-        imageURL:"",
+        imageURL:this.props.imageURL,
         street:"",
-        apartment: this.props.imageURL,
+        apartment: "",
         city:"",
         state:"",
         zip:"",
@@ -87,7 +87,14 @@ getUser = (email) => {
             email: res.data.email,
             firstName:res.data.firstName,
             lastName:res.data.lastName,
-            imageURL:res.data.picture
+            imageURL:res.data.picture,
+            age:res.data.age,
+            street: res.data.address.street,
+            appartment: res.data.address.appartment,
+            city: res.data.address.city,
+            state: res.data.address.state,
+            zip: res.data.address.zip
+
             })
         console.log("API RESPONSE: "+JSON.stringify(res.data))
         }
@@ -146,10 +153,12 @@ handleInputChange = event => {
           console.log(this.state.zip)
     };
 
+   
+
     componentDidMount() {
         this.getUser(this.props.email);
          this.loadSubscriptions();
-         console.log("props"+JSON.stringify(this.props));   
+        //  console.log("props"+JSON.stringify(this.props));   
     
     }
 
@@ -179,7 +188,8 @@ render(){
             <Input name='state' value={this.state.state} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Zip</label>
             <Input name='zip' value={this.state.zip} onChange={this.handleInputChange} type='text' className='user-input'/>
-            <FormBtn onClick={this.handleUserUpdate()}>Submit</FormBtn>
+            <FormBtn onClick={this.handleUserUpdate}>Submit</FormBtn>
+            
         </form>
     </div>
         <h3>Charts</h3>
