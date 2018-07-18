@@ -1,6 +1,23 @@
 h1 {
     padding-bottom:20px;
 }
+.btn-custom {
+  float: left;
+  background-color: #ff1900;
+  /* text-shadow: 1px 1px #000000; */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: white;
+  font-size: 18px;
+  margin:20px;
+  border:0px;
+  padding:10px;
+}
+
+.btn-custom:hover {
+background-color: #ff7200; /* Green */
+color: white;
+cursor: pointer;
+}
 
 .modal {
     font-size: 12px;
