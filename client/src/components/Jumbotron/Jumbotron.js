@@ -13,7 +13,13 @@ const Jumbotron = (props) => (
     <h1 class="display-4">It’s all coming together...</h1>
     <p class="lead">Stop wasting money on subscriptions you don’t use - effortless manage all your subscription services in one place, track your spending & discover new subscriptions you’ll love!
     </p>
-    <button type="button" class="btn btn-signup" onClick={props.auth.login}>Sign Up Today >></button>
+
+     {props.auth.isAuthenticated()===true ?
+    <a href="/subscription"><button type="button" class="btn btn-signup">Discover New Subscriptions >></button></a>
+      :  <button type="button" class="btn btn-signup" onClick={props.auth.login}>Sign Up Today >></button>}
+
+    
+    
     <br/><br/><br/><br/><br/>
     </div> 
   </div> 
