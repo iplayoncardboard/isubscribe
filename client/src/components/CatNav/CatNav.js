@@ -2,6 +2,7 @@ import React from "react";
 import "./CatNav.css";
 
 
+
 //Need to update price to be the one that's set to default, not just the first one in array
 const CatNav = props => (
 <div>
