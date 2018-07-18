@@ -51,11 +51,13 @@ componentDidMount() {
       this.setState({email:`${profile.nickname}@gmail.com`})
       this.setState({name:profile.name})
       this.setState({imageURL:profile.picture})
+      this.setState({navMessage:"Log Out"});
     }
     else if(profile.sub.startsWith('auth0')){
       this.setState({email:profile.name})
       this.setState({name:profile.nickname})
       this.setState({imageURL:profile.picture})
+      this.setState({navMessage:"Log Out"});
     }
   }
   else {
