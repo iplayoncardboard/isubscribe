@@ -13,20 +13,41 @@ const auth = new Auth();
 class BrowseSubscriptions extends Component {
     state = {   
         subscriptionObject: [],
-        categories:[],
-        addSubscription: this.addSubscription
+        categories:[]
+        
       };
       
 
 
 
-addSubscription = () =>{
-    
+addUserSubscription = (userSubscriptionData) =>{
+    API.addUserSubscription(userSubscriptionData);
+}
+
+
+createSubscriptionDBObject = (event)=>{
+    event.preventDefault();
+    // console.log(this.state.subscriptionObject)
+    let selectedSubscription = this.state.subscriptionObject.filter(subscription => subscription._id === event.target.dataset.id)
+
+    let newUserSubscription = {
+        subscription:selectedSubscription[0]._id,
+        description: selectedSubscription[0].description,
+        categories:selectedSubscription[0].category,
+        iconURL:selectedSubscription[0].iconURL,
+        url: selectedSubscription[0].url,
+        price: event.target.dataset.id,
+        date: "",
+        active:true
+    }   
+
+    this.addUserSubscription(newUserSubscription)
+    // console.log(newUserSubscription)
+
 }
 
 componentDidMount() {
      this.loadSubscriptions();
-    
      auth.handleAuthentication();
      this.getCategories();
 }
@@ -89,6 +110,7 @@ handleInputChange = event => {
           });
     };
 
+//For testing only
 showState = (event) => {
     event.preventDefault();
     console.log(`State ${JSON.stringify(this.state.subscriptionObject)}`);
@@ -134,12 +156,13 @@ render(){
                 description={subscription.description}
                 iconURL={subscription.iconURL}
                 url={subscription.url}
+                createSubscriptionDBObject={this.createSubscriptionDBObject}
             />
             ))}
         </div>
     </div>
   </div>    
-  <button onClick={this.showState}> Show State </button>
+
 </div>
 
 

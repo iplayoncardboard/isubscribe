@@ -38,14 +38,21 @@ export default {
     return axios.get("/api/subscriptions/video/");
   },
 
-  // Gets the book with the given id
+
   getSubscription: function(id) {
     return axios.get("/api/subscriptions/" + id);
   },
   getCategories: () => {
     return axios.get('/api/categories/');
-  }
+  },
   
+  //Add User Subscription
+  addUserSubscription: (userSubData) => {
+    return axios.post('/api/usersubscriptions',userSubData);
+  }
+
+  
+
   // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);

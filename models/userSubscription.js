@@ -11,8 +11,8 @@ const userSubscriptionSchema = new Schema({
     date: {type: Date, default: Date.now },
     active:{type: Boolean, default: true}
 });
-const User = mongoose.model("UserSubscription", userSubscriptionSchema);
+const UserSubscription = mongoose.model("UserSubscription", userSubscriptionSchema);
 
-module.exports = User;
+module.exports = UserSubscription;
 
 //Tie to subscription model and add some stuff like my price.
