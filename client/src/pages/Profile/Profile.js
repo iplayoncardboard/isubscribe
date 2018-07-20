@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import "./Profile.css";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import Charts from "../../components/Charts";
 import { Input, FormBtn } from "../../components/Form";
 import FusionCharts from 'fusioncharts';
+import SubCard from '../../components/SubCard';
 
 
 FusionCharts.ready(function() {
@@ -74,7 +74,7 @@ class Profile extends Component {
         state:"",
         zip:"",
         age:"",
-        subscriptions:[],
+        userSubscriptions:[],
         editing: false
       };
 
@@ -100,6 +100,12 @@ getUser = (email) => {
         }
     )
     .catch(err => console.log(err));
+}
+
+getUserSubscriptions = (email) => {
+    
+    API.getUserSubscriptions(email)
+    .then(res => this.setState({userSubscriptions:res.data}))
 }
 
 updateUser = (state) => {
@@ -155,12 +161,13 @@ handleInputChange = event => {
 
    
 
-    componentDidMount() {
-        this.getUser(this.props.email);
-         this.loadSubscriptions();
-        //  console.log("props"+JSON.stringify(this.props));   
-    
-    }
+componentDidMount() {
+    this.getUser(this.props.email);
+    this.getUserSubscriptions(this.props.email)
+        // this.loadSubscriptions();
+    //  console.log("props"+JSON.stringify(this.props));   
+
+}
 
 render(){
     return(
@@ -189,8 +196,22 @@ render(){
             <label>Zip</label>
             <Input name='zip' value={this.state.zip} onChange={this.handleInputChange} type='text' className='user-input'/>
             <FormBtn onClick={this.handleUserUpdate}>Submit</FormBtn>
-            
         </form>
+    </div>
+    <div>
+        {this.state.userSubscriptions.map((userSub)=>{
+            return(
+                <SubCard 
+                id={userSub._id}
+                name={userSub.subscriptionName}
+                price={userSub.price}
+                category={userSub.category}
+                description={userSub.description}
+                iconURL={userSub.iconURL}
+                />
+            )
+        }
+        )}
     </div>
         <h3>Charts</h3>
 

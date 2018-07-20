@@ -6,7 +6,7 @@ import Popup from "reactjs-popup";
 
 //Need to update price to be the one that's set to default, not just the first one in array
 const BrowseCard = props => (
-  <div>
+  <div key={props.id} id={props.id}>
   <div className="card">
     <div className="img-container" >
     <Popup
@@ -14,9 +14,9 @@ const BrowseCard = props => (
     modal
     closeOnDocumentClick
   ><div className="popup"><h2>Select Your {props.name} Subscription Plan</h2><br/>
-  {props.price.map(plans => (
-      <div id="individual-plans">    
-      <b>{plans.planName}</b>: ${plans.price} per {plans.frequency}<button className="button btn btn-orange">Add to Profile</button>
+  {props.price.map((plan,index) => (
+      <div key={`${props.id}-${index}`} id={`${props.id}-${index}`}>    
+      <b>{plan.planName}</b>: ${plan.price} per {plan.frequency}<button data-id={props.id} data-price={plan.price} className="button btn btn-orange" onClick={props.createSubscriptionDBObject}>Add to Profile</button>
       </div>
     ))}
 </div>

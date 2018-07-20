@@ -7,26 +7,49 @@ import CatNav from "../../../components/CatNav";
 import Wrapper from "../../../components/Wrapper";
 import Auth from '../../../Auth';
 import Popup from "reactjs-popup";
+import jwtDecode from 'jwt-decode';
 
 const auth = new Auth();
 
 class BrowseSubscriptions extends Component {
     state = {   
-        subscriptionName: [], 
-        price: [],
-        description: "",
-        category: "",
-        iconURL: "",
-        url: "",
-        price: {},
-        categories:[],
+        subscriptionObject: [],
+        categories:[]
+        
       };
       
 
 
+
+addUserSubscription = (userSubscriptionData) =>{
+    API.addUserSubscription(userSubscriptionData);
+}
+
+
+createSubscriptionDBObject = (event)=>{
+    event.preventDefault();
+    console.log(this.state.subscriptionObject)
+    let selectedSubscription = this.state.subscriptionObject.filter(subscription => subscription._id === event.target.dataset.id)
+
+    let newUserSubscription = {
+        subscription:selectedSubscription[0]._id,
+        description: selectedSubscription[0].description,
+        categories:selectedSubscription[0].category,
+        iconURL:selectedSubscription[0].iconURL,
+        url: selectedSubscription[0].url,
+        price: event.target.dataset.price,
+        date: "",
+        active:true,
+        email:this.props.email
+    }   
+
+    this.addUserSubscription(newUserSubscription)
+    // console.log(newUserSubscription)
+
+}
+
 componentDidMount() {
      this.loadSubscriptions();
-    
      auth.handleAuthentication();
      this.getCategories();
 }
@@ -34,15 +57,12 @@ componentDidMount() {
 loadSubscriptions = () => {
      API.getSubscriptions() 
     // API.getMusic()   
-        .then(res =>
+        .then(res => {
+            // console.log(res.data[0]._id);
             this.setState({
-            subscriptionName: res.data, 
-            price: res.data,
-            description: "",
-            category: "",
-            iconURL: "",
-            url: "",
+            subscriptionObject: res.data
          })
+        }
     )
     .catch(err => console.log(err));
 
@@ -52,45 +72,25 @@ loadCatSubscriptions = catFilter => {
     if (catFilter === "Music Streaming") {
         API.getMusic().then(res =>
             this.setState({
-                subscriptionName: res.data, 
-                price: res.data,
-                description: "",
-                category: "",
-                iconURL: "",
-                url: "",
+                subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
     if (catFilter === "Food") {
         API.getFood().then(res =>
             this.setState({
-                subscriptionName: res.data, 
-                price: res.data,
-                description: "",
-                category: "",
-                iconURL: "",
-                url: "",
+                subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
     if (catFilter === "Fashion") {
         API.getFashion().then(res =>
             this.setState({
-                subscriptionName: res.data, 
-                price: res.data,
-                description: "",
-                category: "",
-                iconURL: "",
-                url: "",
+                subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
     if (catFilter === "Video Streaming Service") {
         API.getVideo().then(res =>
             this.setState({
-                subscriptionName: res.data, 
-                price: res.data,
-                description: "",
-                category: "",
-                iconURL: "",
-                url: "",
+                subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
 };
@@ -112,6 +112,25 @@ handleInputChange = event => {
           });
     };
 
+    getUserInfo(){
+        if(localStorage.getItem('id_token')){
+            return jwtDecode(localStorage.getItem('id_token'));
+        }
+
+        else{
+            return {};
+        }
+
+    }
+
+//For testing only
+showState = (event) => {
+    event.preventDefault();
+    console.log(`State ${JSON.stringify(this.state.subscriptionObject)}`);
+    console.log(`ID 0: ${this.state.subscriptionObject[0]._id}`);
+    console.log(this.getUserInfo());
+}
+
 render(){
     return(
         <div>
@@ -125,7 +144,7 @@ render(){
                  
                 {/* <a className="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" onClick={() => this.loadSubscriptions()}>All Subscriptions</a> */}
                     {this.state.categories.map(categoryName =>( 
-                        <CatNav key={categoryName._id} categoryName={categoryName.name} loadCatSubscriptions={this.loadCatSubscriptions}/> 
+                        <CatNav id={categoryName._id} categoryName={categoryName.name} loadCatSubscriptions={this.loadCatSubscriptions}/> 
                     ))} 
 
              
@@ -142,22 +161,22 @@ render(){
     <div className="tab-content" id="nav-tabContent">
       <div className="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
       
-        {this.state.subscriptionName.map(subscriptions => (
+        {this.state.subscriptionObject.map((subscription) => (
             <BrowseCard
-                key={subscriptions._id}
-                name={subscriptions.subscriptionName}
-                price={subscriptions.price}
-                category={subscriptions.category}
-                description={subscriptions.description}
-                iconURL={subscriptions.iconURL}
-                url={subscriptions.url}
-                price={subscriptions.price}
-            />      
+                id={subscription._id}
+                name={subscription.subscriptionName}
+                price={subscription.price}
+                category={subscription.category}
+                description={subscription.description}
+                iconURL={subscription.iconURL}
+                url={subscription.url}
+                createSubscriptionDBObject={this.createSubscriptionDBObject}
+            />
             ))}
-
         </div>
     </div>
   </div>    
+    <button onClick={this.showState}>Test</button>
 </div>
 
 

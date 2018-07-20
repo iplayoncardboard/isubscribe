@@ -32,7 +32,7 @@ export default class Auth {
         location.pathname = LOGIN_FAILURE_PAGE;
 
     }
-    getProfile (){
+    getProfile(){
         if(localStorage.getItem('id_token')){
             return jwtDecode(localStorage.getItem('id_token'));
         }
