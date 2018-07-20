@@ -13,7 +13,6 @@ import Callback from './pages/Callback'
 import Profile from './pages/Profile'
 import "./App.css";
 import Secret from './components/Secret'
-import { PromiseProvider } from "mongoose";
 import Auth from './Auth'
 
 
