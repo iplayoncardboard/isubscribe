@@ -7,6 +7,7 @@ import CatNav from "../../../components/CatNav";
 import Wrapper from "../../../components/Wrapper";
 import Auth from '../../../Auth';
 import Popup from "reactjs-popup";
+import jwtDecode from 'jwt-decode';
 
 const auth = new Auth();
 
@@ -27,7 +28,7 @@ addUserSubscription = (userSubscriptionData) =>{
 
 createSubscriptionDBObject = (event)=>{
     event.preventDefault();
-    // console.log(this.state.subscriptionObject)
+    console.log(this.state.subscriptionObject)
     let selectedSubscription = this.state.subscriptionObject.filter(subscription => subscription._id === event.target.dataset.id)
 
     let newUserSubscription = {
@@ -36,9 +37,10 @@ createSubscriptionDBObject = (event)=>{
         categories:selectedSubscription[0].category,
         iconURL:selectedSubscription[0].iconURL,
         url: selectedSubscription[0].url,
-        price: event.target.dataset.id,
+        price: event.target.dataset.price,
         date: "",
-        active:true
+        active:true,
+        email:this.props.email
     }   
 
     this.addUserSubscription(newUserSubscription)
@@ -110,11 +112,23 @@ handleInputChange = event => {
           });
     };
 
+    getUserInfo(){
+        if(localStorage.getItem('id_token')){
+            return jwtDecode(localStorage.getItem('id_token'));
+        }
+
+        else{
+            return {};
+        }
+
+    }
+
 //For testing only
 showState = (event) => {
     event.preventDefault();
     console.log(`State ${JSON.stringify(this.state.subscriptionObject)}`);
     console.log(`ID 0: ${this.state.subscriptionObject[0]._id}`);
+    console.log(this.getUserInfo());
 }
 
 render(){
@@ -162,7 +176,7 @@ render(){
         </div>
     </div>
   </div>    
-
+    <button onClick={this.showState}>Test</button>
 </div>
 
 

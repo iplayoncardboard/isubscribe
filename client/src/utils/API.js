@@ -49,6 +49,10 @@ export default {
   //Add User Subscription
   addUserSubscription: (userSubData) => {
     return axios.post('/api/usersubscriptions',userSubData);
+  },
+
+  getUserSubscriptions: (userEmail) => {
+    return axios.get('/api/usersubscriptions',userEmail);
   }
 
   

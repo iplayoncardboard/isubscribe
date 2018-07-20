@@ -7,8 +7,9 @@ const userSubscriptionSchema = new Schema({
     categories:{type:Array, required:false},
     iconURL: {type: String, required:true, trim:true},
     url: {type: String, required: true, tirm: true},
-    price: {type: Array, required: true},
+    price: {type: String, required: true},
     date: {type: Date, default: Date.now },
+    email: {type: String, required:true, trim: true},
     active:{type: Boolean, default: true}
 });
 const UserSubscription = mongoose.model("UserSubscription", userSubscriptionSchema);
