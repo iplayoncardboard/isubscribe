@@ -1,0 +1,18 @@
+.footer {
+    min-height: 70px;
+    background: #ff1900;
+    position: relative;
+    color:white;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .footer span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3px;
+    background: #ff1900;
+  }
+  

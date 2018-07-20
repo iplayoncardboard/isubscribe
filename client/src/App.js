@@ -13,7 +13,8 @@ import Callback from './pages/Callback'
 import Profile from './pages/Profile'
 import "./App.css";
 import Secret from './components/Secret'
-import Auth from './Auth'
+import Auth from './Auth';
+import Footer from './components/Footer'
 
 
 
@@ -67,6 +68,7 @@ componentDidMount() {
 
   render() {
     return(
+      <div>
       <Router>
         <div>
           <Nav {...this.state}/>
@@ -86,6 +88,9 @@ componentDidMount() {
           </ Wrapper>
         </div>
       </Router>
+      <Footer> &copy; Erik Hurst, Brittany Flanagan and Jacinda Power <br/>2018 University of Arizona Coding Boot Camp</Footer>
+      </div>
+      
     )
   }
 }
