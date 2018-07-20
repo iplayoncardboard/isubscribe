@@ -13,13 +13,21 @@ const BrowseCard = props => (
     trigger={<button className="button btn btn-orange">Add to Profile</button>}
     modal
     closeOnDocumentClick
-  ><div className="popup"><h2>Select Your {props.name} Subscription Plan</h2><br/>
-  {props.price.map((plan,index) => (
-      <div key={`${props.id}-${index}`} id={`${props.id}-${index}`}>    
-      <b>{plan.planName}</b>: ${plan.price} per {plan.frequency}<button data-id={props.id} data-price={plan.price} className="button btn btn-orange" onClick={props.createSubscriptionDBObject}>Add to Profile</button>
+  >
+  {close => (
+  <div className="popup"><h2>Select Your {props.name} Subscription Plan</h2><br/>
+  {props.price.map((plan,index) => ( 
+      <div className="individual-plans" key={`${props.id}-${index}`} id={`${props.id}-${index}`}>    
+      <b>{plan.planName}</b>: ${plan.price} per {plan.frequency}
+      <a onClick={close}>
+      <button data-id={props.id} data-price={plan.price} className="button btn btn-orange" 
+      onClick={props.createSubscriptionDBObject}> Add to Profile</button></a>
+
+
       </div>
     ))}
 </div>
+  )}
   </Popup>
     {/* <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal" onClick={() => addToProfileModal(props.name, props.price)}>Add to Profile</button> */}
     <a href={props.url}><img className="Subscription-Logo" src ={props.iconURL} alt={props.name} /></a>
