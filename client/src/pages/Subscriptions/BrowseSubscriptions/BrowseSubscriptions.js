@@ -9,6 +9,7 @@ import Auth from '../../../Auth';
 import Popup from "reactjs-popup";
 import jwtDecode from 'jwt-decode';
 
+
 const auth = new Auth();
 
 class BrowseSubscriptions extends Component {
@@ -17,9 +18,7 @@ class BrowseSubscriptions extends Component {
         categories:[]
         
       };
-      
-
-
+    
 
 addUserSubscription = (userSubscriptionData) =>{
     API.addUserSubscription(userSubscriptionData);
@@ -44,9 +43,20 @@ createSubscriptionDBObject = (event)=>{
     }   
 
     this.addUserSubscription(newUserSubscription)
+    
+
     // console.log(newUserSubscription)
 
 }
+
+// addToProfile = (event) =>{
+//     this.createSubscriptionDBObject(event)
+//     this.changeButton()  
+// }  
+
+// changeButton = (event) =>{
+//     console.log("button clicked")
+//     }  
 
 componentDidMount() {
      this.loadSubscriptions();
@@ -171,6 +181,8 @@ render(){
                 iconURL={subscription.iconURL}
                 url={subscription.url}
                 createSubscriptionDBObject={this.createSubscriptionDBObject}
+                // changeButton={this.changeButton}
+                // addToProfile={this.addToProfile}
             />
             ))}
         </div>
