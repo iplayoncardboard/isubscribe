@@ -1,0 +1,14 @@
+.cardHomepage {
+    width:350px;
+    padding-left: 100px;
+    
+    margin: 10px;
+}
+
+.Subscription-Logo-Homepage {
+    width: 320px;
+    height: 150px;
+    object-fit: cover;
+
+   
+}

@@ -172,7 +172,7 @@ const subscriptionSeed = [
     subscriptionName: "Rent the Runway",
     description: "With Rent The Runway Unlimited, you’ll get unlimited access to designer dresses, accessories, tops, skirts, and more worth up to $40,000 each year. Plus, there are zero rental feels and you get free shipping and dry cleaning. It’s awesome!",
     category: "Fashion", 
-    iconURL:"http://www.ragtradeatlanta.com/wp-content/uploads/2014/12/Rent.jpeg",
+    iconURL:"http://www.georgetowndc.com/media/public_images/2015/11/05/public_image_1342.jpeg",
     url: "https://www.renttherunway.com/",
     accountURL: "https://www.renttherunway.com/account/register",
     price: [
