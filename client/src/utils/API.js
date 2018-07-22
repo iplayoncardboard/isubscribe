@@ -37,6 +37,33 @@ export default {
   getVideo: function() { 
     return axios.get("/api/subscriptions/video/");
   },
+  getArt: function() { 
+    return axios.get("/api/subscriptions/art/");
+  },
+  getGames: function() { 
+    return axios.get("/api/subscriptions/games/");
+  },
+  getBooks: function() { 
+    return axios.get("/api/subscriptions/books/");
+  },
+  getOutdoor: function() { 
+    return axios.get("/api/subscriptions/outdoor/");
+  },
+  getSport: function() { 
+    return axios.get("/api/subscriptions/sport/");
+  },
+  getPets: function() { 
+    return axios.get("/api/subscriptions/pets/");
+  },
+  getChildren: function() { 
+    return axios.get("/api/subscriptions/children/");
+  },
+  getPhotos: function() { 
+    return axios.get("/api/subscriptions/photos/");
+  },
+  // getEvents: function() { 
+  //   return axios.get("/api/subscriptions/events/");
+  // },
 
 
   getSubscription: function(id) {

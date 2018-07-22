@@ -85,6 +85,12 @@ loadCatSubscriptions = catFilter => {
                 subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
+    if (catFilter === "Video Streaming Service") {
+        API.getVideo().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
     if (catFilter === "Food") {
         API.getFood().then(res =>
             this.setState({
@@ -97,8 +103,56 @@ loadCatSubscriptions = catFilter => {
                 subscriptionObject: res.data
             })).catch(err => console.log(err));
     }
-    if (catFilter === "Video Streaming Service") {
-        API.getVideo().then(res =>
+    if (catFilter === "Arts and Crafts") {
+        API.getArt().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Games") {
+        API.getGames().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Books/Periodicals") {
+        API.getBooks().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Outdoor") {
+        API.getOutdoor().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Pets") {
+        API.getPets().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Children") {
+        API.getChildren().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    if (catFilter === "Photos") {
+        API.getPhotos().then(res =>
+            this.setState({
+                subscriptionObject: res.data
+            })).catch(err => console.log(err));
+    }
+    // if (catFilter === "Events") {
+    //     API.getEvents().then(res =>
+    //         this.setState({
+    //             subscriptionObject: res.data
+    //         })).catch(err => console.log(err));
+    // }
+    if (catFilter === "Sports/Fitness") {
+        API.getSport().then(res =>
             this.setState({
                 subscriptionObject: res.data
             })).catch(err => console.log(err));
@@ -188,7 +242,7 @@ render(){
         </div>
     </div>
   </div>    
-    <button onClick={this.showState}>Test</button>
+    {/* <button onClick={this.showState}>Test</button> */}
 </div>
 
 
