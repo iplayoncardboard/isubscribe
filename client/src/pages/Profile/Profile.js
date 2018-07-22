@@ -29,7 +29,8 @@ class Profile extends Component {
         zip:"",
         age:"",
         userSubscriptions:[],
-        editing: false
+        editing: false,
+        reload: true
       };
 
 
@@ -118,13 +119,9 @@ removeSubscription = event => {
     // console.log('I Work'+ event.target.dataset.id)
     API.removeUserSubscription(event.target.dataset.id)
     .then(()=>{
+        this.setState({reload:true})
+        this.getUserSubscriptions(this.props.email)
 
-    //    function findUserSubscriptionID(element) {
-    //        console.log('id '+ event.target.dataset.id)
-    //     return element._id === event.target.dataset.id;
-    //    }
-    //    let temp= this.state.userSubscriptions.findIndex(findUserSubscriptionID())
-    //    console.log(temp)
 
     });
 }
