@@ -78,6 +78,37 @@ const categorySeed=[
   // },
 ]
 
+const userSeed = [
+  
+//COPY THIS TO CREATE A USER FOR YOURSELF
+  { email: "brittanycflanagan@gmail.com",
+    alias: "BrittFlanagan",
+    firstName: "Brittany",
+    lastName: "Flanagan",
+    age:29,
+    imageURL: "https://lh6.googleusercontent.com/-owJ_eJOJtkM/AAAAAAAAAAI/AAAAAAAAAN0/i8gmFEC_8ss/photo.jpg",
+    address: {
+      street: "123 S Sample St",
+      appartment: "",
+      city: "Phoenix",
+      state: "AZ",
+      zip: "85251"
+    },
+    date: new Date(Date.now()),
+    status:true,
+    role: "user",
+    // subscriptions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Subscription"
+    //   }
+    // ]
+  }
+]
+
+
+
+
 const subscriptionSeed = [
   {
     subscriptionName: "Netflix",
@@ -914,6 +945,19 @@ db.Categories
 db.Subscription
   .remove({})
   .then(() => db.Subscription.collection.insertMany(subscriptionSeed))
+  .then(data => {
+    console.log(data.insertedIds.length + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+
+  db.User
+  .remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);

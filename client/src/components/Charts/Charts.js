@@ -26,7 +26,7 @@ state={
       label: "Food",
       value: "1"
   }],
-    chart:{caption: `${this.props.firstName}'s Subscription Usage`,
+    chart:{caption: `Your Subscription Usage`,
     captionFontBold: "1",
     subCaption: "by Category",
     theme: "fint",
@@ -63,7 +63,7 @@ state={
       value: "9.99"
   }
 ],
-    chart:{caption: `${this.props.firstName}'s Subscriptions`,
+    chart:{caption: `Your Subscriptions`,
     subCaption: "by Cost",
     xAxisName: "Subscriptions",
     yAxisName: "Price (USD)/Month",
