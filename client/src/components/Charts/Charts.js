@@ -9,13 +9,11 @@ Chart(FusionCharts);
 //Need to update price to be the one that's set to default, not just the first one in array
 class Charts extends Component {
 state={
-
-
-  pieSource:{
-    data:[{
-      label: "Music Streaming Service",
-      value: "2"
-  },
+    pieSource:{
+      data:[{
+        label: "Music Streaming Service",
+        value: "2"
+    },
   {
       label: "Video Streaming Service",
       value: "1"
@@ -28,7 +26,7 @@ state={
       label: "Food",
       value: "1"
   }],
-    chart:{caption: "Stephanie's Subscription Usage",
+    chart:{caption: `${this.props.firstName}'s Subscription Usage`,
     captionFontBold: "1",
     subCaption: "by Category",
     theme: "fint",
@@ -100,7 +98,7 @@ state={
 };
 
 renderColumnCharts = () => {
-    let colTemp = {...this.state.colConfig}
+  let colTemp = {...this.state.colConfig}
   colTemp.dataSource = {...this.state.colSource}
   this.setState({colConfig:colTemp})
 }
@@ -127,8 +125,6 @@ render(){
 
 return(
   <div>
-  {/* <div id="chartContainer">Subscription Costs Per Month</div>
-  <div id="piechartContainer">% Spent in each cagegory</div> */}
   <ReactFC {...this.state.colConfig} />
   <ReactFC {...this.state.pieConfig} />
   

@@ -53,6 +53,10 @@ export default {
 
   getUserSubscriptions: (userEmail) => {
     return axios.get('/api/usersubscriptions',userEmail);
+  },
+
+  removeUserSubscription: (userSubID) => {
+    return axios.delete('/api/usersubscriptions',userSubID)
   }
 
   

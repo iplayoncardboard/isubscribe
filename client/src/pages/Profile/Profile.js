@@ -113,7 +113,25 @@ handleInputChange = event => {
           console.log(this.state.zip)
     };
 
-   
+removeSubscription = event => {
+    event.preventDefault();
+    // console.log('I Work'+ event.target.dataset.id)
+    API.removeUserSubscription(event.target.dataset.id)
+    .then(()=>{
+
+    //    function findUserSubscriptionID(element) {
+    //        console.log('id '+ event.target.dataset.id)
+    //     return element._id === event.target.dataset.id;
+    //    }
+    //    let temp= this.state.userSubscriptions.findIndex(findUserSubscriptionID())
+    //    console.log(temp)
+
+    });
+}
+
+// findUserSubscriptionID = (element,id) => {
+//     return element._id === id;
+// }
 
 componentDidMount() {
     this.getUser(this.props.email);
@@ -162,6 +180,7 @@ render(){
                 category={userSub.category}
                 description={userSub.description}
                 iconURL={userSub.iconURL}
+                removeSubscription={this.removeSubscription}
                 />
             )
         }
@@ -169,7 +188,7 @@ render(){
     </div>
         <h3>Charts</h3>
 
-            <Charts/>
+            <Charts firstName={this.state.user}/>
 
  
 </div>

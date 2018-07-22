@@ -8,6 +8,7 @@ import "./SubCard.css";
 const SubCard = props => (
   <div key={props.id} id={props.id}>
   <div className="card">
+  <button data-id={props.id} onClick={props.removeSubscription}>X</button>
     <div className="img-container" >
     <a href={props.url}><img className="Subscription-Logo" src ={props.iconURL} alt={props.name} /></a>
     <a href={props.url}> <h2>{props.name}</h2></a>
@@ -16,7 +17,6 @@ const SubCard = props => (
     <p id="price">Cost: ${props.price}</p>
     </div>
     </div>
-   
  </div>
 );
 
