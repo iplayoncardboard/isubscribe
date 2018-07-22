@@ -1,0 +1,21 @@
+.form-container {
+    width: 600px;
+    padding-right:50px;
+    padding-left:50px;
+    margin:auto;
+    float: right;
+}
+
+.user-input {
+    width:100%;
+}
+
+.profilepic {
+    float: left;
+    width: 200px;
+    padding: 20px;
+}
+
+.subscription-feed {
+    padding:20px;
+}

@@ -63,7 +63,7 @@ state={
       value: "9.99"
   }
 ],
-    chart:{caption: `'s Subscriptions`,
+    chart:{caption: `${this.props.firstName}'s Subscriptions`,
     subCaption: "by Cost",
     xAxisName: "Subscriptions",
     yAxisName: "Price (USD)/Month",
@@ -81,16 +81,16 @@ state={
   },
   colConfig:{ type: "column3d",
   renderAt: "chartContainer",
-  width: "500",
-  height: "300",
+  width: "800",
+  height: "400",
   dataFormat: "json",
   dataSource:{}},
 
   pieConfig:{
     type: "pie3d",
     renderAt: "piechartContainer",
-    width: "500",
-    height: "300",
+    width: "800",
+    height: "400",
     dataFormat: "json",
     dataSource:{}
 }
@@ -125,8 +125,9 @@ render(){
 
 return(
   <div>
-  <ReactFC {...this.state.colConfig} />
-  <ReactFC {...this.state.pieConfig} />
+
+  <div className="chart1"> <ReactFC {...this.state.colConfig} /></div><br/>
+  <div className="chart2"> <ReactFC {...this.state.pieConfig} /></div>
   
   </div>
 

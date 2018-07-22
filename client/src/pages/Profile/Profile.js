@@ -121,9 +121,10 @@ removeSubscription = event => {
     .then(()=>{
         this.setState({reload:true})
         this.getUserSubscriptions(this.props.email)
-
-
-    });
+    }).then(
+        window.location.reload()
+    )
+    ;
 }
 
 // findUserSubscriptionID = (element,id) => {
@@ -141,10 +142,13 @@ componentDidMount() {
 render(){
     return(
         <div>
-        <h1>Welcome {this.props.name}</h1>
-        <h2>Your email is {this.props.email}</h2>
-        <h3>Found user {this.state.email}</h3>
+            <img src={this.props.imageURL} className='profilepic'/><br/><br/>
+        <h3>Welcome {this.props.name}</h3>
+        <p>Your email is {this.props.email}</p>
+        {/* <p>Found user {this.state.email}</p> */}
+        
         <div className='form-container'>
+        <h4> Update Your User Information</h4>
         <form>
             <label>First Name</label>
             <Input name='firstName' value={this.state.firstName} onChange={this.handleInputChange} type='text' className='user-input'/>
@@ -167,7 +171,13 @@ render(){
             <FormBtn onClick={this.handleUserUpdate}>Submit</FormBtn>
         </form>
     </div>
-    <div>
+    <br /><br/>
+        {/* <h3>Charts</h3> */}
+
+            <Charts firstName={this.state.firstName}/>
+
+ <br/><br/><h3> Manage My Subscriptions</h3>
+ <div className="subscription-feed">
         {this.state.userSubscriptions.map((userSub)=>{
             return(
                 <SubCard 
@@ -183,12 +193,9 @@ render(){
         }
         )}
     </div>
-        <h3>Charts</h3>
-
-            <Charts firstName={this.state.user}/>
-
- 
 </div>
+
+
     )
 }
 }
