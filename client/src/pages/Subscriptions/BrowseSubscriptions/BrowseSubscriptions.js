@@ -32,8 +32,9 @@ createSubscriptionDBObject = (event)=>{
 
     let newUserSubscription = {
         subscription:selectedSubscription[0]._id,
+        subscriptionName: selectedSubscription[0].subscriptionName,
         description: selectedSubscription[0].description,
-        categories:selectedSubscription[0].category,
+        category:selectedSubscription[0].category,
         iconURL:selectedSubscription[0].iconURL,
         url: selectedSubscription[0].url,
         price: event.target.dataset.price,

@@ -18,12 +18,12 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now },
   status:{type: Boolean, default: true},
   role: {type: String, default:"user"},
-  subscriptions: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Subscription"
-    }
-  ]
+  // subscriptions: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Subscription"
+  //   }
+  // ]
 });
 
 const User = mongoose.model("User", userSchema);

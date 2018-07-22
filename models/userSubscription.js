@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const userSubscriptionSchema = new Schema({
     subscription: {type: Schema.Types.ObjectId},
+    subscriptionName: {type:String, required:true},
     description: {type:String, required:true},
-    categories:{type:Array, required:false},
+    category:{type:String, required:false},
     iconURL: {type: String, required:true, trim:true},
     url: {type: String, required: true, tirm: true},
     price: {type: String, required: true},
