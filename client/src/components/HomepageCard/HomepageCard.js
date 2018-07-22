@@ -7,7 +7,7 @@ import Popup from "reactjs-popup";
 //Need to update price to be the one that's set to default, not just the first one in array
 const HomepageCard = props => (
 
-<div className="cardHomepage">
+<div className="cardHomepage card">
 <a href={props.url}><img className="Subscription-Logo-Homepage" src ={props.iconURL} alt={props.name} /></a>
   <div className="card-body">
     <a href={props.url}> <h5 className="card-title">{props.name}</h5></a>

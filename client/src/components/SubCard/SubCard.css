@@ -23,17 +23,19 @@
       margin-right:50px;
   }
 
- .btn-orange {
+ .btn-orange-subcard {
     float: right;
+    width:50px;
     background-color: #ff1900;
     /* text-shadow: 1px 1px #000000; */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     color: white;
     font-size: 18px;
+    border:0px;
   }
 
 
-.btn-orange:hover {
+.btn-orange-subcard:hover {
   background-color: #ff7200; /* Green */
   color: white;
 }

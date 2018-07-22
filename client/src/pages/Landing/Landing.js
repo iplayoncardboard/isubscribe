@@ -101,7 +101,7 @@ render(){
         price={subscriptions.price}
     />      
     ))}
-    </div>
+    </div><br/><br/>
     <div className="card-deck">
 
 {this.state.featured2.map(subscriptions => (
