@@ -6,6 +6,7 @@ const subscriptionSchema = new Schema({
     description: {type:String, required:true},
     category:{type:String, required:false},
     iconURL: {type: String, required:true, trim:true},
+    accountURL: {type: String, trim:true},
     url: {type: String, required: true, tirm: true},
     price: {type: Array, required: false}, //will need to flip the required flag to true.
     date: {type: Date, default: Date.now },
