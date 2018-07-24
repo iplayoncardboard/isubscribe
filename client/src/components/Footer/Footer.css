@@ -16,3 +16,7 @@
     background: #ff1900;
   }
   
+  html {
+    min-height: 100%;
+
+}
