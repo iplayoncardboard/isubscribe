@@ -11,7 +11,7 @@ const Jumbotron = (props) => (
   <div class="container-fluid bg-1 text-center">
       <br/><br/><br/><br/><br/>
     <h1 class="display-4">It’s all coming together...</h1>
-    <p class="lead">Stop wasting money on subscriptions you don’t use - effortless manage all your subscription services in one place, track your spending & discover new subscriptions you’ll love!
+    <p class="lead">Stop wasting money on subscriptions you don’t use - effortlessly manage all your subscription services in one place, track your spending & discover new subscriptions you’ll love!
     </p>
 
      {props.auth.isAuthenticated()===true ?

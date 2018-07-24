@@ -130,7 +130,7 @@ componentDidMount() {
 
 render(){
     return(
-        <div>
+        <div class="profile-page">
             <img src={this.props.imageURL} className='profilepic'/><br/><br/>
         <h3>Welcome {this.props.name}</h3>
         {/* <p>Your email is {this.props.email}</p> */}

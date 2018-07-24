@@ -925,6 +925,128 @@ const subscriptionSeed = [
       ], 
     date: new Date(Date.now()),
     active: true
+  },
+  {
+    subscriptionName: "Love Every",
+    description: "Our goal is to help every parent feel confident. Our play products are designed by child development experts and distilled to their simplest, purest purpose: to be exactly what children need at each stage.",
+    category: "Children", 
+    iconURL:"https://cdn.shopify.com/s/files/1/2386/2119/t/2/assets/product-horizon-slideshow-0_800x.jpg?8838194453376070678",
+    url: "https://loveverybaby.com",
+    accountURL: "https://loveverybaby.com/products/the-play-kits",
+    price: [
+        {planName: "The Looker", price:36.00, frequency: "month", default:true },
+        {planName: "The Looker-2 Month", price:80.00, frequency: "month", default:false },
+        {planName: "The Charmer", price:36.00, frequency: "month", default:true },
+        {planName: "The Charmer-2 Month", price:80.00, frequency: "month", default:false },
+        {planName: "The Senser", price:36.00, frequency: "month", default:true },
+        {planName: "The Senser-2 Month", price:80.00, frequency: "month", default:false },
+        {planName: "The Inspector", price:36.00, frequency: "month", default:true },
+        {planName: "The Inspector-2 Month", price:80.00, frequency: "month", default:false },
+        {planName: "The Explorer", price:36.00, frequency: "month", default:true },
+        {planName: "The Explorer-2 Month", price: 80.00, frequency: "month", default:false },
+        {planName: "The Thinker", price:36.00, frequency: "month", default:true },
+        {planName: "The Thinker-2 Month", price:80.00, frequency: "month", default:false }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "Kid Box",
+    description: "The most convenient, cost-effective and fun way to get the surprise of style, hand-picked by our stylist, for your child 5 times a year. Try now, pay later. Free shipping and returns.",
+    category: "Children", 
+    iconURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7tlBYXg_nzGJ9KUwftTScAnirF6eLjUajckNhKfk8XX4eg0f2",
+    url: "https://www.kidbox.com/",
+    accountURL: "https://www.kidbox.com/#login",
+    price: [
+        {planName: "Seasonal Box", price:68.00, frequency: "once", default:false },
+        {planName: "Uniform Box", price:68.00, frequency: "month", default:false },
+        {planName: "Kidsentials Box", price:30.00, frequency: "once", default:false },
+        {planName: "Splash Box", price:78.00, frequency: "month", default:true }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "KitNipBox",
+    description: "Our boxes contain the best high-quality cat toys, all-natural treats, and other fun, healthy cat products. ",
+    category: "Pets", 
+    iconURL:"https://pbs.twimg.com/profile_images/728254204737945600/xpKPl4sa_400x400.jpg",
+    url: "https://www.kitnipbox.com",
+    accountURL: "https://www.kitnipbox.com/signin",
+    price: [
+        {planName: "Happy Cat", price:19.99, frequency: "month", default:true },
+        {planName: "Multi-Cat", price:29.99, frequency: "month", default:false }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "Saddle Box",
+    description: "SaddleBox is the monthly subscription box for horse owners. Each month you’ll get treats, grooming products, tack and more! We’re trusted by thousands of horse lovers, and U.S. shipping is always free.",
+    category: "Pets", 
+    iconURL:"https://www.budgetequestrian.com/wp-content/uploads/2018/04/sb8.jpg",
+    url: "https://www.saddlebox.net/",
+    accountURL: "https://saddlebox.chargifypay.com/subscribe/93j6nk98s75d/saddlebox",
+    price: [
+        {planName: "Monthly", price:34.95, frequency: "month", default:true }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "Sports Crate",
+    description: "Officially licensed, unique gear and apparel. Join now! Gear and collectibles. Shipping included.",
+    category: "Sports/Fitness", 
+    iconURL:"https://images.ctfassets.net/hrrx17y2andt/4ZWqrKcitqgYm4QqmUA8Wq/09f566aac1046d297d3ef43082ef684a/sports-open-graph.jpg",
+    url: "https://www.sportscrate.com/",
+    accountURL: "https://www.sportscrate.com/users/sign_in",
+    price: [
+        {planName: "Basic", price:29.99, frequency: "bi-monthly", default:true }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "Memento Monthly",
+    description: "An amazing time saving monthly subscription box to create lasting memories with your little love. Each box is delivered to you monthly with the items you need to make a beautiful, fun tablescape for breakfast or dinner, photo booth props and 2-3 crafts to do with your little love.",
+    category: "Photos", 
+    iconURL:"https://cdn.shopify.com/s/files/1/2380/2973/products/DSC_8892_grande.jpg?v=1514596234",
+    url: "https://mementomonthly.com/",
+    accountURL: "https://mementomonthly.com/account/login",
+    price: [
+        {planName: "Monthly", price:49.95, frequency: "month", default:true }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "Snapsy Box",
+    description: "Snapsy Box is a subscription box full of photographic surprises! Each month, you'll receive a box of curated props, backdrops, or art supplies to inspire your creative spirit. In addition to these goodies are full-color, easy-to-follow directions to make best use of your kit, along with specific professional tips to help take your photography to the next level. You'll even have access to family-friendly Youtube videos to watch Danielle and Leah put the kit to use!",
+    category: "Photos", 
+    iconURL:"https://cdn.hellosubscription.com/wp-content/uploads/sites/2/2018/05/03032325/Snapsy-box-375x250.jpeg",
+    url: "https://www.snapsybox.com/",
+    accountURL: "https://www.snapsybox.com/customer/login",
+    price: [
+        {planName: "Monthly", price:34.99, frequency: "month", default:true },
+        {planName: "3 Month", price:30.00, frequency: "month", default:false },
+        {planName: "6 Month", price:25.00, frequency: "month", default:false },
+        {planName: "12 Month", price:18.75, frequency: "month", default:false }
+      ], 
+    date: new Date(Date.now()),
+    active: true
+  },
+  {
+    subscriptionName: "YOYO",
+    description: "Access an entire fleet of cars on demand for less than the cost of the one you own now.",
+    category: "Automobile Subscription", 
+    iconURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5wjHZF5jn99V32yoSNX1GQBlyUWSB98aRkTIi8wu5JjQ8R8YUhQ",
+    url: "https://www.joinyoyo.com/",
+    accountURL: "https://www.joinyoyo.com/",
+    price: [
+        {planName: "Pay Per Mile *Price Varies", price:250.00, frequency: "month", default:true }
+      ], 
+    date: new Date(Date.now()),
+    active: true
   }
  
 ];

@@ -15,7 +15,7 @@ const SubCard = props => (
     <a href={props.url}> <h2>{props.name}</h2></a>
     <p>Category: {props.category}</p>
     <p>{props.description}</p>
-    <p id="price">Cost: ${props.price}</p>
+    <h3 id="price">Cost: ${props.price}</h3>
     </div>
     </div>
  </div>
