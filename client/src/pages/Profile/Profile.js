@@ -35,9 +35,10 @@ class Profile extends Component {
 
 
 getUser = (email) => {
+    console.log(`email for lookup ${email}`)
     API.getUser(email).then(
         res => {
-            console.log(res.data);
+            console.log('res data' + JSON.stringify(res.data));
         this.setState({
             email: res.data.email,
             firstName:res.data.firstName,
@@ -87,9 +88,19 @@ loadSubscriptions = () => {
 
 };
 
-handleUserUpdate = ()=>{
+updateUser = (state) => {
+    API.updateUser(state)
+    .then(
+        // this.setState({editing:false})
+        console.log(`user update sent: ${JSON.stringify(state)}`)
+    )
+}
+
+handleUserUpdate = (event)=>{
+    event.preventDefault();
+    console.log(this.state.firstName)
     let payload = {
-     email: this.state.email,
+     email: this.props.email,
      alias: this.state.user,
      firstName: this.state.firstName,
      lastName: this.state.lastName,
@@ -103,6 +114,7 @@ handleUserUpdate = ()=>{
          zip: this.state.zip
          }
      }
+     console.log(`Payload ${JSON.stringify(payload)}`)
      this.updateUser(payload);
  };
 
@@ -127,15 +139,16 @@ removeSubscription = event => {
     ;
 }
 
-// findUserSubscriptionID = (element,id) => {
-//     return element._id === id;
-// }
+
 
 componentDidMount() {
-    this.getUser(this.props.email);
-    this.getUserSubscriptions(this.props.email)
+    if(this.props.email){
+        this.getUser(this.props.email);
+        this.getUserSubscriptions(this.props.email)
+    }
+   
         // this.loadSubscriptions();
-    //  console.log("props"+JSON.stringify(this.props));   
+     console.log("props"+JSON.stringify(this.props));   
 
 }
 
