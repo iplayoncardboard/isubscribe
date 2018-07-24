@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports= {
     findByEmail: function(req, res) {
         db.UserSubscription
-          .find(req.params.email)
+          .find(req.params)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },

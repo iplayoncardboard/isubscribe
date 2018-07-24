@@ -35,10 +35,10 @@ class Profile extends Component {
 
 
 getUser = (email) => {
-    console.log(`email for lookup ${email}`)
+    // console.log(`email for lookup ${email}`)
     API.getUser(email).then(
         res => {
-            console.log('res data' + JSON.stringify(res.data));
+            // console.log('res data' + JSON.stringify(res.data));
         this.setState({
             email: res.data.email,
             firstName:res.data.firstName,
@@ -52,7 +52,7 @@ getUser = (email) => {
             zip: res.data.address.zip
 
             })
-        console.log("API RESPONSE: "+JSON.stringify(res.data))
+        // console.log("API RESPONSE: "+JSON.stringify(res.data))
         }
     )
     .catch(err => console.log(err));
@@ -68,33 +68,10 @@ updateUser = (state) => {
     API.updateUser(state)
     .then(
         // this.setState({editing:false})
-        console.log(`user update sent: ${this.state.zip}`)
+        // console.log(`user update sent: ${this.state.zip}`)
     )
 }
 
-loadSubscriptions = () => {
-     API.getSubscriptions()
-        .then(res =>
-            this.setState({
-            subscriptionName: res.data, 
-            price: res.data,
-            description: "",
-            category: "",
-            iconURL: "",
-            url: "",
-         })
-    )
-    .catch(err => console.log(err));
-
-};
-
-updateUser = (state) => {
-    API.updateUser(state)
-    .then(
-        // this.setState({editing:false})
-        console.log(`user update sent: ${JSON.stringify(state)}`)
-    )
-}
 
 handleUserUpdate = (event)=>{
     event.preventDefault();
@@ -114,7 +91,7 @@ handleUserUpdate = (event)=>{
          zip: this.state.zip
          }
      }
-     console.log(`Payload ${JSON.stringify(payload)}`)
+    //  console.log(`Payload ${JSON.stringify(payload)}`)
      this.updateUser(payload);
  };
 
@@ -123,12 +100,12 @@ handleInputChange = event => {
           this.setState({
             [name]: value
           });
-          console.log(this.state.zip)
+        //   console.log(this.state.zip)
     };
 
 removeSubscription = event => {
     event.preventDefault();
-    // console.log('I Work'+ event.target.dataset.id)
+    console.log('I Work'+ event.target.dataset.id)
     API.removeUserSubscription(event.target.dataset.id)
     .then(()=>{
         this.setState({reload:true})
@@ -148,7 +125,7 @@ componentDidMount() {
     }
    
         // this.loadSubscriptions();
-     console.log("props"+JSON.stringify(this.props));   
+    //  console.log("props"+JSON.stringify(this.props));   
 
 }
 
@@ -157,7 +134,7 @@ render(){
         <div>
             <img src={this.props.imageURL} className='profilepic'/><br/><br/>
         <h3>Welcome {this.props.name}</h3>
-        <p>Your email is {this.props.email}</p>
+        {/* <p>Your email is {this.props.email}</p> */}
         {/* <p>Found user {this.state.email}</p> */}
         
         <div className='form-container'>
