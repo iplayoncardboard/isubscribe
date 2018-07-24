@@ -30,7 +30,7 @@ class Profile extends Component {
         age:"",
         userSubscriptions:[],
         editing: false,
-        reload: true
+
       };
 
 
@@ -108,7 +108,6 @@ removeSubscription = event => {
     console.log('I Work'+ event.target.dataset.id)
     API.removeUserSubscription(event.target.dataset.id)
     .then(()=>{
-        this.setState({reload:true})
         this.getUserSubscriptions(this.props.email)
     }).then(
         window.location.reload()
