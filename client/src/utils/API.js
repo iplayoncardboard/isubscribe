@@ -75,6 +75,7 @@ export default {
   
   //Add User Subscription
   addUserSubscription: (userSubData) => {
+    // console.log(`USER SUB ${JSON.stringify(userSubData)}`)
     return axios.post('/api/usersubscriptions',userSubData);
   },
 

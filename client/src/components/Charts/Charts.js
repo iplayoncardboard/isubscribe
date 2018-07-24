@@ -119,6 +119,7 @@ this.setState({pieConfig:pieTemp})
 componentDidMount(){
 this.renderColumnCharts();
 this.renderPieCharts();
+// console.log(`User Subs Charts : ${this.props.userSubscriptions}`)
 }
   
 render(){

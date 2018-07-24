@@ -163,7 +163,7 @@ render(){
     <br /><br/>
         {/* <h3>Charts</h3> */}
 
-            <Charts firstName={this.state.firstName}/>
+            <Charts firstName={this.state.firstName} userSubscriptions={this.state.userSubscriptions}/>
 
  <br/><br/><h3> Manage My Subscriptions</h3>
  <div className="subscription-feed">

@@ -78,7 +78,7 @@ componentDidMount() {
             <Route exact path='/login' component={Login} auth={this.state.auth}/>
             <Route exact path='/users/new' component={NewUser} />
             {/* <Route exact path="/users/:id" component={Users} /> */}
-            <PrivateRoute exact path='/subscription/new' render={NewSubscription} />
+            <PrivateRoute exact path='/subscription/new' render={(props) =><NewSubscription {...props} email={this.state.email} auth={this.state.auth}/>} />
             <Route exact path='/subscription' render={(props) =><BrowseSubscriptions {...props} email={this.state.email} auth={this.state.auth}/>} />
             <PrivateRoute  exact path='/profile' render={(props) =>(<Profile {...props} name= {this.state.name} email={this.state.email} imageURL={this.state.imageURL} />) }   />
             <Route exact path='/callback' component={Callback} />

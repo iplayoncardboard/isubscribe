@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import API from '../../../utils/API'
 import { Input, FormBtn, TextArea } from "../../../components/Form"
-import { stat } from 'fs';
 import "./NewSubscription.css";
 
    
@@ -28,8 +27,7 @@ import "./NewSubscription.css";
             iconURL: this.state.iconURL,
             url: this.state.url,
             price: this.state.price,
-            date: "",
-            email: this.state.email,
+            email: this.props.email,
             active: true,
         });
         window.location.reload();
@@ -96,7 +94,7 @@ import "./NewSubscription.css";
             <label>Monthly Price</label>
             <Input name='price' value={this.state.price} onChange={this.handleInputChange} type='text' className='user-input'/>
             <label>Account Email</label>
-            <Input name='email' value={this.state.email} onChange={this.handleInputChange} type='text' className='user-input'/>
+            {/* <Input name='email' value={this.state.email} onChange={this.handleInputChange} type='text' className='user-input'/> */}
             <FormBtn onClick={this.handleFormSubmit}>Submit</FormBtn>
         </form>
     </div>
