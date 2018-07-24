@@ -3,10 +3,14 @@ const userSubscriptionController = require("../../controllers/userSubscriptionCo
 
 // Matches with "/api/users"
 router.route("/")
-  .get(userSubscriptionController.findByEmail)
   .post(userSubscriptionController.create)
-  .delete(userSubscriptionController.delete);
+  
 
+  router.route('/:email')
+  .get(userSubscriptionController.findByEmail)
+
+  router.route('/:id')
+  .delete(userSubscriptionController.delete);
 // // Matches with "/api/books/:id"
 // router
 //   .route("/:id")

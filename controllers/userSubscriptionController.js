@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports= {
     findByEmail: function(req, res) {
         db.UserSubscription
-          .find(req.params.email)
+          .find(req.params)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
@@ -18,9 +18,9 @@ module.exports= {
            .catch(err => res.status(422).json(err));
        },
        delete: (req,res) =>{
-           console.log(`DELREQ: ${JSON.stringify(req.body)}`)
+           console.log(`DELREQ: ${JSON.stringify(req.params)}`)
             db.UserSubscription
-            .deleteOne(req.body)
+            .deleteOne({_id:req.params.id})
             .catch(err => res.status(422).json(err));
        }
 }

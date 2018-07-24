@@ -21,21 +21,8 @@ const Nav = props => (
         <a className="nav-link" href="/subscription">Browse Subscriptions <span className="sr-only"></span></a>
       </li>
          
-      {/* <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Browse Subscriptions
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        
-        <a className="dropdown-item" href="/subscription">Browse all Subscriptions</a>
 
-          <a className="dropdown-item" href="/subscription/new">Add New Subscriptions</a>
-        </div>
-      </li> */}
       {props.auth.isAuthenticated()===true ?
-      // <li className="nav-item">
-      //   <a className="nav-link" href="/profile">My Profile</a>
-      // </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           My Account
@@ -49,7 +36,7 @@ const Nav = props => (
       </li>
       : <span></span> }
       <li className="nav-item">
-        <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? props.auth.logout():props.auth.login()}}>{props.navMessage}</a>
+        <a className="nav-link" onClick={()=>{props.auth.isAuthenticated()===true ? props.auth.logout() : props.auth.login()}}>{props.navMessage}</a>
       </li>
       
 
@@ -62,6 +49,4 @@ const Nav = props => (
 export default Nav;
 
 
-// props.auth.isAuthenticated()===true ? props.auth.login : <Redirect to='/profile'/>
-// console.log(props.auth.isAuthenticated())
 

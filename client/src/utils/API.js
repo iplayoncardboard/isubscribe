@@ -78,12 +78,12 @@ export default {
     return axios.post('/api/usersubscriptions',userSubData);
   },
 
-  getUserSubscriptions: (userEmail) => {
-    return axios.get('/api/usersubscriptions',userEmail);
+  getUserSubscriptions: function(userEmail) {
+    return axios.get(`/api/usersubscriptions/${userEmail}`,userEmail);
   },
 
   removeUserSubscription: (userSubID) => {
-    return axios.delete('/api/usersubscriptions',userSubID)
+    return axios.delete(`/api/usersubscriptions/${userSubID}`,userSubID)
   }
 
   
