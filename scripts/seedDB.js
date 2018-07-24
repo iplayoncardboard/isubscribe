@@ -1048,7 +1048,6 @@ const subscriptionSeed = [
     date: new Date(Date.now()),
     active: true
   }
- 
 ];
 
 
