@@ -1,0 +1,18 @@
+.custom-sub-add {
+    margin:auto;
+    padding-top: 30px;
+}
+
+.form-container-sub {
+    margin: auto;
+    float: center;
+}
+
+textarea {
+    width: 300px;
+    height: 200px;
+  }
+
+.user-input {
+    width:500px;
+}
