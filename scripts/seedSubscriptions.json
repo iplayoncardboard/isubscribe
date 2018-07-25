@@ -1,0 +1,16 @@
+
+{
+    "subscriptionName": "Netflix",
+    "description": "Netflix is the world's leading internet entertainment service with 125 million memberships in over 190 countries enjoying TV series, documentaries and feature films across a wide variety of genres and languages. Members can watch as much as they want, anytime, anywhere, on any internet-connected screen. Members can play, pause and resume watching, all without commercials or commitments.",
+    "category": "Video Streaming Service", 
+    "iconURL":"https://imgix.bustle.com/uploads/image/2017/8/29/c8c8077a-10fc-44d5-93f0-da4e592a299e-netflix-logo-print_pms.jpg", //CHANGE THIS TO SOURCE?
+    "url": "https://www.netflix.com/",
+    "accountURL": "https://www.netflix.com/login",
+    "price": [
+        {"planName": "Basic", "price":7.99, "frequency": "month", "default": true},
+        {"planName": "Standard", "price": 10.99, "frequency": "month", "default": false},
+        {"planName": "Premium", "price": 13.99, "frequency": "month", "default": false}
+    ], 
+    "active": "true"
+  }
+
