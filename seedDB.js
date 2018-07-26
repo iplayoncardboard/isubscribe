@@ -1,5 +1,9 @@
 // import BrowseSubscriptions from "../client/src/pages/Subscriptions/BrowseSubscriptions";
 
+//Add this line to the script object of package.json
+// "postinstall": "node ./seedDB.js"
+
+
 const mongoose = require("mongoose");
 const db = require("./models");
 // mongoose.Promise = global.Promise;
