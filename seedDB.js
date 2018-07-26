@@ -1063,17 +1063,17 @@ const subscriptionSeed = [
 //     process.exit(1);
 //   });
 
-db.Subscription
-  .remove({})
-  .then(() => db.Subscription.collection.insertMany(subscriptionSeed))
-  .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Subscription
+//   .remove({})
+//   .then(() => db.Subscription.collection.insertMany(subscriptionSeed))
+//   .then(data => {
+//     console.log(data.insertedIds.length + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
 
   // db.User
