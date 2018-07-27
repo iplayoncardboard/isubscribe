@@ -33,6 +33,8 @@
     "jwt-decode": "^2.2.0",
     "mongoose": "4.11.0",
     "react-fusioncharts": "^1.0.5",
+    "react-redux": "^5.0.7",
+    "react-router-redux": "^4.0.8",
     "reactjs-popup": "^1.1.1",
     "redux": "^4.0.0"
   }
