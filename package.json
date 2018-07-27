@@ -13,8 +13,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "postinstall": "node ./seedDB.js"
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +33,7 @@
     "jwt-decode": "^2.2.0",
     "mongoose": "4.11.0",
     "react-fusioncharts": "^1.0.5",
-    "reactjs-popup": "^1.1.1"
+    "reactjs-popup": "^1.1.1",
+    "redux": "^4.0.0"
   }
 }

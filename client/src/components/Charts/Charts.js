@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import "./Charts.css";
 import ReactFC from 'react-fusioncharts';
 import Chart from 'fusioncharts/fusioncharts.charts';
+import graphCalc from '../../utils/graphCalc'
 
 Chart(FusionCharts);
 
@@ -37,32 +38,7 @@ state={
   },
 
   colSource:{
-    data:[{
-      label: "Amazon Prime",
-      value: "12.99",
-
-  },
-  {
-      label: "Le Tote",
-      value: "79.00"
-  },
-  {
-      label: "Rent The Runway",
-      value: "159.00"
-  },
-  {
-      label: "Plated",
-      value: "9.95"
-  },
-  {
-      label: "Spotify Premium",
-      value: "9.99"
-  },
-  {
-      label: "Apple Music",
-      value: "9.99"
-  }
-],
+    data:[],
     chart:{caption: `Your Subscriptions`,
     subCaption: "by Cost",
     xAxisName: "Subscriptions",
@@ -97,6 +73,11 @@ state={
 
 };
 
+populateColumnChart = () => {
+    let sourceTemp = {...this.state.colSource}
+    sourceTemp.data = graphCalc.generateColSource(this.props.userSubscriptions)
+} 
+
 renderColumnCharts = () => {
   let colTemp = {...this.state.colConfig}
   colTemp.dataSource = {...this.state.colSource}
@@ -104,9 +85,9 @@ renderColumnCharts = () => {
 }
 
 renderPieCharts = () => {
-  let pieTemp = {...this.state.pieConfig}
-pieTemp.dataSource = {...this.state.pieSource}
-this.setState({pieConfig:pieTemp})
+    let pieTemp = {...this.state.pieConfig}
+    pieTemp.dataSource = {...this.state.pieSource}
+    this.setState({pieConfig:pieTemp})
 }
 
 // renderCharts = (chartConfig, chartSource) => {
@@ -117,6 +98,7 @@ this.setState({pieConfig:pieTemp})
 // }
 
 componentDidMount(){
+this.populateColumnChart();
 this.renderColumnCharts();
 this.renderPieCharts();
 // console.log(`User Subs Charts : ${this.props.userSubscriptions}`)
